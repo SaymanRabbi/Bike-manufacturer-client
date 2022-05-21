@@ -1,0 +1,56 @@
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .img-one{
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../Images/banner1.jpg);
+    background-size: cover;
+    background-position: center;
+     background-color: #183250;
+     width: 100%;
+     height: 500px;
+  }
+  .img-tow{
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../Images/banner2.jpg);
+    background-size: cover;
+    background-position: center;
+     background-color: #183250;
+     width: 100%;
+     height: 500px;
+  }
+  .img-there{
+    background:linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../Images/banner3.jpg);
+    background-size: cover;
+    background-position: center;
+     background-color: #183250;
+     width: 100%;
+     height: 500px;
+  }

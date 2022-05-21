@@ -1,9 +1,12 @@
 import React from 'react';
+import Banner from './Banner';
+import BusinessSummary from './BusinessSummary';
 
 const Home = () => {
     return (
-        <div>
-            <h1>This is Home</h1>
+        <div style={{ minHeight: '100vh' }}>
+            <Banner></Banner>
+           <BusinessSummary/>
         </div>
     );
 };
