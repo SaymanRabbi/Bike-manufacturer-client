@@ -1,0 +1,6 @@
+.notfound{
+    background-image: url(../../Images/notfound.png);
+    background-size: cover;
+    width: 100%;
+    background-position: center center;
+}

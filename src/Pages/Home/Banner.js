@@ -32,15 +32,18 @@ const Banner = () => {
                 <SwiperSlide>
                     <div className="img-one flex justify-center items-center">
                         <div className="w-full md:w-3/4 lg:w-2/4">
-                            <h1 className="text-5xl text-white font-bold uppercase">Bullet with plain "Enfield" tank badge</h1>
-                              
+                            <h1 className="text-4xl mb-3 text-white font-bold uppercase">The Classic Backstory</h1>
+                            <h6 className="text-white mb-5">Through historical references, stories and anecdotes shared by our key collaborators, we would like to take you</h6>
+                            <button className="btn btn-primary">More Info &#8594;</button>
                          </div>
                      </div>
                   </SwiperSlide>
                   <SwiperSlide>
                 <div className="img-tow flex justify-center items-center">
                 <div className=" w-full md:w-3/4 lg:w-2/4">
-                            <h1 className="text-5xl text-white font-bold uppercase">Bullet with plain "Enfield" tank badge</h1>
+                <h1 className="text-4xl mb-3 text-white font-bold uppercase">Timeless Classic</h1>
+                            <h6 className="text-white mb-5">The All-New Classic 350 continues to embody the traditions and craftsmanship of the past as it is reborn. </h6>
+                            <button className="btn btn-primary">More Info &#8594;</button>
                               
                          </div>
                      </div>
@@ -48,7 +51,9 @@ const Banner = () => {
                 <SwiperSlide>
                 <div className="img-there flex justify-center items-center">
                 <div className=" w-full md:w-3/4 lg:w-2/4">
-                            <h1 className="text-5xl text-white font-bold uppercase">Bullet with plain "Enfield" tank badge</h1>
+                <h1 className="text-4xl mb-3 text-white font-bold uppercase">A Refined Glide</h1>
+                            <h6 className="text-white mb-5">With an enhanced chassis setup, accessible riding position, advanced braking ability, high specification suspension</h6>
+                            <button className="btn btn-primary">More Info &#8594;</button>
                               
                          </div>
                      </div>
