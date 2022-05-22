@@ -21,8 +21,11 @@ const Product = () => {
         const minquantityvalue = parseInt(minquantity)
         const Updateproduct = (event) => {
         event.preventDefault();
-        if (quentityValue > productquentity || quentityValue < minquantityvalue) {
-            return toast.error('Provide Some Legal Value')
+        if (quentityValue > productquentity) {
+            return toast.error(`Value Leages Than ${productquentity}`)
+        }
+        if (quentityValue < minquantityvalue) {
+            return toast.error(`Value Larges Than ${minquantityvalue}`)
         }
         else {
             const name = event.target.name.value;
@@ -36,13 +39,30 @@ const Product = () => {
             }
             const productupdate = productquentity - quentityValue;
 
+           //post user product
+            fetch('http://localhost:5000/product', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body:JSON.stringify({product})
+            }).then(res => res.json()).then(data => {
+                if (data.success) {
+                    toast.success('success')
+                }
+            })
+            //update product
             fetch(`http://localhost:5000/product/${id}`, {
                 method: "PUT",
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body:JSON.stringify({quantity:productupdate})
-            }).then(res=>res.json()).then(data=>console.log(data))
+            }).then(res => res.json()).then(data => {
+                if (data.success) {
+                    toast.success('Product Add Your Card')
+                }
+            })
             event.target.reset()
         
             }
@@ -74,10 +94,10 @@ const Product = () => {
           <textarea type="text" placeholder='Your Address' name='address' class="input input-bordered" required/>
         </div>
         <div class="form-control mb-3">
-          <input type="number" placeholder='Product Quentity'  class="input input-bordered" onBlur={(e)=>setInputQuentity(e.target.value)}  required/>
+          <input type="number" placeholder='Minimun Add 5 Product'  class="input input-bordered" onChange={(e)=>setInputQuentity(e.target.value)}  required/>
         </div>
         <div class="form-control mt-6">
-          <button class="btn btn-primary" disabled={quentityValue<minquantity}>Confirm Order</button>
+          <button class="btn btn-primary" disabled={quentityValue<minquantityvalue}>Confirm Order</button>
         </div>
         </form>
       </div>
