@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
 import auth from '../../firebase.init.js'
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
 const Login = () => {
     const navigate = useNavigate()
@@ -78,6 +78,7 @@ const Login = () => {
                         
                     </form>
                     <div class="divider">OR</div>
+                    <Link to='/register' className='text-center text-primary mb-3'>Dont Have Account? Register</Link>
                     <button onClick={()=>signInWithGoogle()} className="btn btn-outline flex gap-5"><FontAwesomeIcon className=' text-primary text-3xl' icon={faGoogle}></FontAwesomeIcon> CONTINUE WITH GOOGLE</button>
                 </div>
         </div>

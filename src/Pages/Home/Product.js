@@ -94,10 +94,10 @@ const Product = () => {
           <textarea type="text" placeholder='Your Address' name='address' class="input input-bordered" required/>
         </div>
         <div class="form-control mb-3">
-          <input type="number" placeholder='Minimun Add 5 Product'  class="input input-bordered" onChange={(e)=>setInputQuentity(e.target.value)}  required/>
+          <input type="number" placeholder={`Minimun Add ${minquantity} Product`}  class="input input-bordered" onChange={(e)=>setInputQuentity(e.target.value)}  required/>
         </div>
         <div class="form-control mt-6">
-          <button class="btn btn-primary" disabled={quentityValue<minquantityvalue}>Confirm Order</button>
+          <button class="btn btn-primary" disabled={quentityValue<minquantityvalue||quentityValue>productquentity}>Confirm Order</button>
         </div>
         </form>
       </div>
