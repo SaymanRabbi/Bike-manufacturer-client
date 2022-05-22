@@ -1,0 +1,51 @@
+[
+{
+    "name":"Stockton Tire Air Pressure Gauge With Hose",
+    "description":"Having the correct tire pressure helps prolong tire life and maximizes performance. Check it with ease with this gauge from Stockton Tool Company",
+    "quantity":20,
+    "price":30,
+    "image":"https://i.ibb.co/px61ScT/cruz-tools-tirepro-dial-gauge-tool-300x300.jpg",
+    "minquantity":5
+},
+{
+    "name":"Motion Pro Valve Core Tool",
+    "description":"Allows for easy removal and installation of standard valve cores in tubed or tubeless valve stems (Schrader valve)",
+    "quantity":50,
+    "price":10,
+    "image":"https://i.ibb.co/Z63b39R/motion-pro-valve-core-tool-300x300.jpg",
+    "minquantity":5
+},
+{
+    "name":"Pirelli Angel GT II Tires",
+    "description":"Pirelli revamps the tried and true sport touring tire with an all-new tread pattern and compound to provide long-lasting grip and confident handling",
+    "quantity":70,
+    "price":15,
+    "image":"https://i.ibb.co/vxbdJLZ/pirelli-diablo-super-sport-2-detail.jpg",
+    "minquantity":5
+},
+{
+    "name":"Stockton Roller Seat With Tool Box",
+    "description":"Keep those 10mm sockets right under your uhh, ...within easy reach with the Stockton Tool Box Roller Seat. This smooth-gliding wheeled stool features",
+    "quantity":90,
+    "price":40,
+    "image":"https://i.ibb.co/KmQ6wG7/stockton-axle-adjustment-tool-metric-300x300.jpg",
+    "minquantity":5
+},
+{
+    "name":"Stockton Universal Oil Filter Wrench",
+    "description":"Stockton Universal Oil Filter Wrench. A must have tool for the do-it-yourself mechanic. Features: Universal design is auto adjusting to fit most oil filters",
+    "quantity":100,
+    "price":25,
+    "image":"https://i.ibb.co/gRnS1Jh/stockton-universal-oil-filter-wrench-300x300.jpg",
+    "minquantity":5
+},
+{
+    "name":"Stockton 10 Piece Hex Key T-Handle Set",
+    "description":"T-Handle design increases turning power and provides a sure comfortable grip. Ideal for home, shop, workplace or the workbench. Includes steel organiz",
+    "quantity":70,
+    "price":30,
+    "image":"https://i.ibb.co/h2dvdRc/stockton10-piece-hex-key-t-handle-set-sae-300x300.jpg",
+    "minquantity":5
+}
+
+]

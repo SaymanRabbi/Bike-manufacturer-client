@@ -1,6 +1,8 @@
 import React from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons'
 
 // Import Swiper styles
 import "swiper/css";
@@ -34,7 +36,7 @@ const Banner = () => {
                         <div className="w-full md:w-3/4 lg:w-2/4">
                             <h1 className="text-4xl mb-3 text-white font-bold uppercase">The Classic Backstory</h1>
                             <h6 className="text-white mb-5">Through historical references, stories and anecdotes shared by our key collaborators, we would like to take you</h6>
-                            <button className="btn btn-primary">More Info &#8594;</button>
+                            <button className="btn btn-primary">More Tools <FontAwesomeIcon className=" ml-2" icon={faScrewdriverWrench}></FontAwesomeIcon></button>
                          </div>
                      </div>
                   </SwiperSlide>
@@ -43,7 +45,7 @@ const Banner = () => {
                 <div className=" w-full md:w-3/4 lg:w-2/4">
                 <h1 className="text-4xl mb-3 text-white font-bold uppercase">Timeless Classic</h1>
                             <h6 className="text-white mb-5">The All-New Classic 350 continues to embody the traditions and craftsmanship of the past as it is reborn. </h6>
-                            <button className="btn btn-primary">More Info &#8594;</button>
+                            <button className="btn btn-primary">More Tools <FontAwesomeIcon className=" ml-2" icon={faScrewdriverWrench}></FontAwesomeIcon></button>
                               
                          </div>
                      </div>
@@ -53,7 +55,7 @@ const Banner = () => {
                 <div className=" w-full md:w-3/4 lg:w-2/4">
                 <h1 className="text-4xl mb-3 text-white font-bold uppercase">A Refined Glide</h1>
                             <h6 className="text-white mb-5">With an enhanced chassis setup, accessible riding position, advanced braking ability, high specification suspension</h6>
-                            <button className="btn btn-primary">More Info &#8594;</button>
+                            <button className="btn btn-primary">More Tools <FontAwesomeIcon className=" ml-2" icon={faScrewdriverWrench}></FontAwesomeIcon></button>
                               
                          </div>
                      </div>
