@@ -9,6 +9,7 @@ import Blog from './Pages/Blog/Blog';
 import Login from './Pages/Login/Login';
 import Footer from './Pages/Shared/Footer/Footer';
 import NotFound from './Pages/NotFound/NotFound';
+import Product from './Pages/Home/Product';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/blog' element={<Blog></Blog>}></Route>
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='*' element={<NotFound></NotFound>}></Route>
+          <Route path='/product/:id' element={<Product></Product>}></Route>
         </Routes>
         <Footer></Footer>
         <ToastContainer></ToastContainer>
