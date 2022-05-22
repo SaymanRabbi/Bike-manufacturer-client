@@ -5,12 +5,12 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons'
 import { useCreateUserWithEmailAndPassword,useSignInWithGoogle, useUpdateProfile} from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
 const Register = () => {
-    // let location = useLocation();
+    let location = useLocation();
     const navigate = useNavigate()
-    // let from = location.state?.from?.pathname || "/";
+    let from = location.state?.from?.pathname || "/";
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [signInWithGoogle, gUser, gLoading] = useSignInWithGoogle(auth);
     const [
@@ -22,9 +22,9 @@ const Register = () => {
     const [updateProfile, updating] = useUpdateProfile(auth);
     useEffect(() => {
         if (user || gUser) {
-            navigate('/')
+            navigate(from, { replace: true });
         }
-    },[gUser,user,navigate])
+    },[gUser,user,navigate,from])
     if (gLoading||loading||updating) {
         return <Loading></Loading>
     }

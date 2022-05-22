@@ -4,23 +4,28 @@ import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
 import auth from '../../firebase.init.js'
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
 const Login = () => {
+    let location = useLocation();
     const navigate = useNavigate()
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    let from = location.state?.from?.pathname || "/";
+    const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+    const [
+        signInWithEmailAndPassword,user, loading, error,
+      ] = useSignInWithEmailAndPassword(auth);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     useEffect(() => {
-        if (user) {
-            navigate('/')
+        if (user||guser) {
+            navigate(from, { replace: true });
         }
-    }, [user, navigate])
+    }, [user, navigate,from,guser])
     if (loading) {
         return <Loading></Loading>
     }
     const onSubmit = data => {
-        
+        signInWithEmailAndPassword(data.email,data.password)
     }
     return (
         <div style={{minHeight:'100vh',backgroundColor:'#570DF8'}} className='flex justify-center items-center'>

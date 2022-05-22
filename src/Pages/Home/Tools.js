@@ -10,7 +10,7 @@ const Tools = () => {
     }
     return (
         <div className='py-10'>
-            <h1 className='text-primary text-3xl text-center  font-bold'>
+            <h1 className='text-primary text-3xl text-center font-bold mb-10'>
             Motorcycle Tools & Tool Kits
             </h1>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5'>
