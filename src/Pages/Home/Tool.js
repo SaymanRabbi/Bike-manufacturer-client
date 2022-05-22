@@ -11,7 +11,7 @@ const Tool = ({ tool }) => {
     <h2 class="card-title">
       {name}
             <div class="badge badge-secondary">{quantity>70?'NEW':''}</div>
-    </h2>
+            </h2>
                 <p>{(description).slice(0,100)}</p>
                 <div class="card-actions justify-end">
                 <div class="badge badge-outline text-primary ">Price: ${price}</div>

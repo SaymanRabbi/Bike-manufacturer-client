@@ -1,11 +1,12 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading/Loading';
 import Tool from './Tool';
 
 const Tools = () => {
     const { data: tools, isLoading } = useQuery('tools', () => fetch('http://localhost:5000/tools').then(res => res.json()))
     if (isLoading) {
-        return
+        return <Loading></Loading>
     }
     return (
         <div className='py-10'>
