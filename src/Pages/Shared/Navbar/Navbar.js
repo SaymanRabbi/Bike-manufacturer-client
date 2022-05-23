@@ -23,16 +23,20 @@ const Navbar = () => {
               {
                user&&<li><NavLink to='/dashboard'>Dashboard</NavLink></li>
               }
-              <li>{
-               user?<NavLink to='/login' onClick={logout}>Logout</NavLink>:<NavLink to='/login'>login</NavLink>
-              }</li>
-              <li>{
-               user?<p>{user.displayName}</p>:''
-            }</li>
+             {
+               user? <li><p>{user.displayName}</p></li>:''
+            }
+              {
+               user?<li><NavLink to='/login' onClick={logout}>Logout</NavLink></li>:<li><NavLink to='/login'>login</NavLink></li>
+              }
+              
             </ul>
             
     </div>
           <Link to='/' className="btn btn-ghost normal-case text-xl text-white">Bike Manufacturers</Link>
+          <label htmlFor="dashboard-sidebar" tabIndex="1" className="btn m-auto btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+      </label>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0 gap-3 text-white">
@@ -40,13 +44,14 @@ const Navbar = () => {
             <li><NavLink to='/blog'>Blog</NavLink></li>
             {
                user&&<li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+            }
+            {
+               user? <li><p>{user.displayName}</p></li>:''
+            }
+            {
+               user?<li><NavLink to='/login' onClick={logout}>Logout</NavLink></li>:<li><NavLink to='/login'>login</NavLink></li>
               }
-            <li>{
-               user?<NavLink to='/login' onClick={logout}>Logout</NavLink>:<NavLink to='/login'>login</NavLink>
-            }</li>
-             <li>{
-               user?<p>{user.displayName}</p>:''
-            }</li>
+             
     </ul>
   </div>
 </div>

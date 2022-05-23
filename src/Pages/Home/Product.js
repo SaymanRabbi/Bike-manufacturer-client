@@ -45,7 +45,7 @@ const Product = () => {
             const address = event.target.address.value;
             const productPrice = quentityValue * parseInt(price)
             const product = {
-                name,email,productName,phone,address,productPrice
+                name,email,productName,phone,address,productPrice,quentityValue
             }
             const productupdate = productquentity - quentityValue;
            //post user product
@@ -96,7 +96,10 @@ const Product = () => {
         </div>
         <div class="form-control mb-3">
           <input type="text" value={name} name='productName' class="input input-bordered" readOnly/>
-                            </div>
+         </div>
+        <div class="form-control mb-3">
+                                <p className='text-xl text-primary'>Avilabel Product {productquentity}</p>
+         </div>
          <div class="form-control mb-3">
           <input type="number" placeholder='Phone Number' name='phone'  class="input input-bordered" required/>
                             </div>

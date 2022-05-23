@@ -27,7 +27,8 @@ const Orders = () => {
                       <th>Number</th>
                       <th>Product Name</th>
                       <th>Price</th>
-                      <th>Favorite Color</th>
+                      <th>Quentity</th>
+                      <th className='text-center'>Action</th>
                     </tr>
                   </thead>
                         <tbody>
