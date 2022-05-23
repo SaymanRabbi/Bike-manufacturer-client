@@ -1,42 +1,90 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-const CheckoutForm = () => {
+const CheckoutForm = ({payment}) => {
     const stripe = useStripe();
     const elements = useElements();
-    const handleSubmit = async (event) => {
-        // Block native form submission.
-        event.preventDefault();
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
+    const [clientSecret, setClientSecret] = useState("");
+    const [txid,setTxId] = useState('')
+    const {productName,productPrice,email,phone,name,_id} = payment
+    useEffect(() => {
+        fetch('http://localhost:5000/create-payment-intent', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `Barer ${localStorage.getItem('token')}`
+            },
+            body:JSON.stringify({price:productPrice})
+        }).then(res => res.json()).then(data => {
+            if (data.clientSecret) {
+                setClientSecret(data.clientSecret)
+            }
+            console.log(data)
+        })
+    },[productPrice])
+  const handleSubmit = async (event) => {
+    // Block native form submission.
+    event.preventDefault();
     
-        if (!stripe || !elements) {
-          // Stripe.js has not loaded yet. Make sure to disable
-          // form submission until Stripe.js has loaded.
-          return;
-        }
+    if (!stripe || !elements) {
+      // Stripe.js has not loaded yet. Make sure to disable
+      // form submission until Stripe.js has loaded.
+      return;
+    }
     
-        // Get a reference to a mounted CardElement. Elements knows how
-        // to find your CardElement because there can only ever be one of
-        // each type of element.
-        const card = elements.getElement(CardElement);
+    // Get a reference to a mounted CardElement. Elements knows how
+    // to find your CardElement because there can only ever be one of
+    // each type of element.
+    const card = elements.getElement(CardElement);
     
-        if (card == null) {
-          return;
-        }
+    if (card == null) {
+      return;
+    }
     
-        // Use your card Element with other Stripe.js APIs
-        const {error, paymentMethod} = await stripe.createPaymentMethod({
-          type: 'card',
-          card,
-        });
-    
-        if (error) {
-          console.log('[error]', error);
-        } else {
-          console.log('[PaymentMethod]', paymentMethod);
-        }
-      };
+    // Use your card Element with other Stripe.js APIs
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: 'card',
+      card,
+    });
+    setError(error?.message || '')
+    setSuccess('')
+    //confirm card payment
+    const { paymentIntent, error: intenterror } = await stripe.confirmCardPayment(
+      clientSecret,
+      {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: name,
+            email: email
+          },
+        },
+      },
+    );
+    if (intenterror) {
+      setError(intenterror?.message)
+      setSuccess('')
+    }
+    else {
+      setError('')
+      setSuccess('Your Payment is Complited')
+      setTxId(paymentIntent.id)
+      console.log(paymentIntent)
+      fetch(`http://localhost:5000/payment/${_id}`, {
+        method: "PATCH",
+        headers: {
+          'Content-Type': 'application/json',
+          'authorization': `Barer ${localStorage.getItem('token')}`
+        },
+        body: JSON.stringify({ tnxId: txid })
+      }).then(res => res.json()).then(data => console.log(data))
+    };
+  }
     return (
-        <form onSubmit={handleSubmit}>
+        <>
+         <form onSubmit={handleSubmit}>
       <CardElement
         options={{
           style: {
@@ -53,10 +101,18 @@ const CheckoutForm = () => {
           },
         }}
       />
-      <button type="submit" className='btn btn-sm mt-5' disabled={!stripe}>
+      <button type="submit" className='btn btn-sm mt-5' disabled={!stripe ||!clientSecret}>
         Pay
       </button>
-    </form>
+        </form>
+            {
+                error && <p className='text-red-500'><span>{error}</span></p>
+            }
+            {
+                success && <p className='text-secondary'><span>{success}</span></p>
+            }
+        </>
+        
     );
 };
 
