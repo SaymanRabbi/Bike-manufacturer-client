@@ -23,7 +23,7 @@ const Register = () => {
     
   const [updateProfile, updating] = useUpdateProfile(auth);
   const [token] = useToken(gUser || user)
-  const [userdata] = useStoreUser(user||gUser)
+  useStoreUser(user||gUser)
     useEffect(() => {
         if (token) {
             navigate(from, { replace: true });

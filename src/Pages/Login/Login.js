@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
@@ -14,21 +14,31 @@ const Login = () => {
     const navigate = useNavigate()
     let from = location.state?.from?.pathname || "/";
     const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth);
+    const [showerror,setShowError] = useState('')
     const [
         signInWithEmailAndPassword,user, loading, error,
       ] = useSignInWithEmailAndPassword(auth);
     const { register, handleSubmit, formState: { errors } } = useForm();
     //get token
     const [token] = useToken(guser || user)
-    const [userdata] = useStoreUser(user||guser)
+    useStoreUser(user||guser)
     useEffect(() => {
         if (token) {
             navigate(from, { replace: true });
         }
-    }, [token, navigate,from])
+    }, [token, navigate, from])
+   
+    useEffect(() => {
+        let displayErro;
+        if (error || gerror) {
+            displayErro = <p className='text-red-500'><span>{error?.message || gerror?.message}</span></p>
+            setShowError(displayErro)
+        }
+    },[error,gerror])
     if (loading||gloading) {
         return <Loading></Loading>
     }
+   
     
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email,data.password)
@@ -83,7 +93,10 @@ const Login = () => {
                 }
         
         </label>
-                     </div>
+                        </div>
+                        {
+                            showerror
+                        }
                         <input type="submit" className='btn btn-primary' value='Login' />
                         
                     </form>

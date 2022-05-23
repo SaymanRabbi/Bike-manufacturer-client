@@ -12,6 +12,10 @@ import NotFound from './Pages/NotFound/NotFound';
 import Product from './Pages/Home/Product';
 import Register from './Pages/Login/Register';
 import RequireAuth from './Pages/Shared/RequireAuth';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import Orders from './Pages/Dashboard/Orders';
+import Review from './Pages/Dashboard/Review';
+import Profile from './Pages/Dashboard/Profile';
 
 function App() {
   return (
@@ -27,6 +31,13 @@ function App() {
           <Route path='/product/:id' element={<RequireAuth>
             <Product></Product>
           </RequireAuth>}></Route>
+          <Route path='/dashboard' element={<RequireAuth>
+            <Dashboard></Dashboard>
+          </RequireAuth>}>
+            <Route path='orders' element={<Orders></Orders>}></Route>
+            <Route path='review' element={<Review></Review>}></Route>
+            <Route index element={<Profile></Profile>}></Route>
+          </Route>
         </Routes>
         <Footer></Footer>
         <ToastContainer></ToastContainer>

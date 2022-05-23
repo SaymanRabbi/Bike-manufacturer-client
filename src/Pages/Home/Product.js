@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
@@ -8,6 +8,7 @@ import Loading from '../Shared/Loading/Loading';
 
 const Product = () => {
     const [inputquentity, setInputQuentity] = useState(0)
+    const [error,setError] = useState('')
     const [user] = useAuthState(auth)
     const { id } = useParams()
     const { data: product, isLoading } = useQuery(['product', id], () => fetch(`http://localhost:5000/product/${id}`, {
@@ -16,23 +17,27 @@ const Product = () => {
             'authorization': `Barer ${localStorage.getItem('token')}`
         }
     }).then(res => res.json()))
-
-    if (isLoading) {
-        return <Loading></Loading>;
-    }
-    const { name,quantity, price, image, minquantity } = product
+    const { name,quantity, price, image, minquantity } = product||{}
     const quentityValue = parseInt(inputquentity||0)
-        const productquentity = parseInt(quantity)
-        const minquantityvalue = parseInt(minquantity)
-        const Updateproduct = (event) => {
-        event.preventDefault();
+    const productquentity = parseInt(quantity)
+    const minquantityvalue = parseInt(minquantity)
+    useEffect(() => {
         if (quentityValue > productquentity) {
-            return toast.error(`Value Leages Than ${productquentity}`)
+            setError(`Maximu Buy ${productquentity} Products`)
         }
-        if (quentityValue < minquantityvalue) {
-            return toast.error(`Value Larges Than ${minquantityvalue}`)
+        else if (quentityValue < minquantityvalue) {
+            setError(`Minimum Buy ${minquantityvalue} Products`)
         }
         else {
+            setError('')
+        }
+    }, [quentityValue, minquantityvalue, productquentity])
+    if (isLoading) {
+        return <Loading></Loading>;
+    } 
+    //get data from
+        const Updateproduct = (event) => {
+        event.preventDefault();
             const name = event.target.name.value;
             const email = event.target.email.value;
             const productName = event.target.productName.value;
@@ -43,7 +48,6 @@ const Product = () => {
                 name,email,productName,phone,address,productPrice
             }
             const productupdate = productquentity - quentityValue;
-
            //post user product
             fetch('http://localhost:5000/product', {
                 method: 'POST',
@@ -70,11 +74,10 @@ const Product = () => {
                     toast.success('Product Add Your Card')
                 }
             })
-            event.target.reset()
-        
-            }
-            
-      }
+            event.target.reset()   
+                  
+    }
+    
     return (
         
         <div class="hero min-h-screen bg-base-200">
@@ -102,9 +105,10 @@ const Product = () => {
         </div>
         <div class="form-control mb-3">
           <input type="number" placeholder={`Minimun Add ${minquantity} Product`}  class="input input-bordered" onChange={(e)=>setInputQuentity(e.target.value)}  required/>
-        </div>
-        <div class="form-control mt-6">
-          <button class="btn btn-primary" disabled={quentityValue<minquantityvalue||quentityValue>productquentity}>Place Order</button>
+                            </div>
+                            {quentityValue?<p className='text-red-500 '><span>{error}</span></p>:''}
+                            <div class="form-control mt-6">
+          <button class="btn btn-primary" disabled={quentityValue<minquantityvalue||quentityValue>productquentity}>Confirm Order</button>
         </div>
         </form>
       </div>

@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react"
+import { useEffect} from "react"
 const useStoreUser = (user) => {
-    const [userdata, setUserData] = useState('')
     useEffect(() => {
         const email = user?.user?.email
         const userData = { email:email }
@@ -15,6 +14,5 @@ const useStoreUser = (user) => {
             }).then(res=>res.json()).then(data=>console.log(data))
         }
     }, [user])
-    return [userdata]
 }
 export default useStoreUser
