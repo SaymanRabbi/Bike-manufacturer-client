@@ -10,13 +10,18 @@ const Product = () => {
     const [inputquentity, setInputQuentity] = useState(0)
     const [user] = useAuthState(auth)
     const { id } = useParams()
-    const { data: product, isLoading } = useQuery(['product', id], () => fetch(`http://localhost:5000/product/${id}`).then(res => res.json()))
+    const { data: product, isLoading } = useQuery(['product', id], () => fetch(`http://localhost:5000/product/${id}`, {
+        method: 'GET',
+        headers: {
+            'authorization': `Barer ${localStorage.getItem('token')}`
+        }
+    }).then(res => res.json()))
 
     if (isLoading) {
         return <Loading></Loading>;
     }
     const { name,quantity, price, image, minquantity } = product
-        const quentityValue = parseInt(inputquentity)
+    const quentityValue = parseInt(inputquentity||0)
         const productquentity = parseInt(quantity)
         const minquantityvalue = parseInt(minquantity)
         const Updateproduct = (event) => {
@@ -43,7 +48,8 @@ const Product = () => {
             fetch('http://localhost:5000/product', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'authorization': `Barer ${localStorage.getItem('token')}`
                 },
                 body:JSON.stringify({product})
             }).then(res => res.json()).then(data => {
@@ -55,7 +61,8 @@ const Product = () => {
             fetch(`http://localhost:5000/product/${id}`, {
                 method: "PUT",
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'authorization': `Barer ${localStorage.getItem('token')}`
                 },
                 body:JSON.stringify({quantity:productupdate})
             }).then(res => res.json()).then(data => {
@@ -97,7 +104,7 @@ const Product = () => {
           <input type="number" placeholder={`Minimun Add ${minquantity} Product`}  class="input input-bordered" onChange={(e)=>setInputQuentity(e.target.value)}  required/>
         </div>
         <div class="form-control mt-6">
-          <button class="btn btn-primary" disabled={quentityValue<minquantityvalue||quentityValue>productquentity}>Confirm Order</button>
+          <button class="btn btn-primary" disabled={quentityValue<minquantityvalue||quentityValue>productquentity}>Place Order</button>
         </div>
         </form>
       </div>

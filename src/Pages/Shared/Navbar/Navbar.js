@@ -8,6 +8,7 @@ const Navbar = () => {
   const [user] = useAuthState(auth)
   const logout = () => {
     signOut(auth);
+    localStorage.removeItem('token')
   };
     return (
         <div className="navbar  bg-slate-900">

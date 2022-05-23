@@ -8,11 +8,12 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
 import useToken from '../../hooks/useToken';
+import useStoreUser from '../../hooks/useStoreUser';
 const Register = () => {
     let location = useLocation();
     const navigate = useNavigate()
     let from = location.state?.from?.pathname || "/";
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const [signInWithGoogle, gUser, gLoading] = useSignInWithGoogle(auth);
     const [
         createUserWithEmailAndPassword,
@@ -21,7 +22,8 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
     
   const [updateProfile, updating] = useUpdateProfile(auth);
-  const [token] = useToken(gUser||user)
+  const [token] = useToken(gUser || user)
+  const [userdata] = useStoreUser(user||gUser)
     useEffect(() => {
         if (token) {
             navigate(from, { replace: true });
@@ -39,7 +41,7 @@ const Register = () => {
       <div className="flex justify-center items-center" style={{backgroundColor:'#570DF8',minHeight:'100vh'}}>
         <div className="card w-96 bg-base-100 shadow-xl my-16">
           <div className="card-body">
-            <h2 className="text-center text-secondary font-bold text-2xl">
+            <h2 className="text-center text-primary font-bold text-2xl">
               Register
             </h2>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -133,7 +135,7 @@ const Register = () => {
               <input type="submit" className="btn btn-primary w-full max-w-xs" />
               <p className="mt-2">
               New Bike Manufacturers?
-                <Link to="/login" className=" text-secondary">
+                <Link to="/login" className="text-primary">
                   Login
                 </Link>
               </p>
