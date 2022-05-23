@@ -7,6 +7,7 @@ import auth from '../../firebase.init';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
+import useToken from '../../hooks/useToken';
 const Register = () => {
     let location = useLocation();
     const navigate = useNavigate()
@@ -19,12 +20,13 @@ const Register = () => {
         loading,
     ] = useCreateUserWithEmailAndPassword(auth);
     
-    const [updateProfile, updating] = useUpdateProfile(auth);
+  const [updateProfile, updating] = useUpdateProfile(auth);
+  const [token] = useToken(gUser||user)
     useEffect(() => {
-        if (user || gUser) {
+        if (token) {
             navigate(from, { replace: true });
         }
-    },[gUser,user,navigate,from])
+    },[token,navigate,from])
     if (gLoading||loading||updating) {
         return <Loading></Loading>
     }
@@ -130,7 +132,7 @@ const Register = () => {
               </div>
               <input type="submit" className="btn btn-primary w-full max-w-xs" />
               <p className="mt-2">
-                Member Doctors Portal?
+              New Bike Manufacturers?
                 <Link to="/login" className=" text-secondary">
                   Login
                 </Link>

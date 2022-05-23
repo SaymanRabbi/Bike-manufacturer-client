@@ -7,6 +7,7 @@ import auth from '../../firebase.init.js'
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
+import useToken from '../../hooks/useToken.js';
 const Login = () => {
     let location = useLocation();
     const navigate = useNavigate()
@@ -16,14 +17,17 @@ const Login = () => {
         signInWithEmailAndPassword,user, loading, error,
       ] = useSignInWithEmailAndPassword(auth);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    //get token
+    const [token] = useToken(guser||user)
     useEffect(() => {
-        if (user||guser) {
+        if (token) {
             navigate(from, { replace: true });
         }
-    }, [user, navigate,from,guser])
-    if (loading) {
+    }, [token, navigate,from])
+    if (loading||gloading) {
         return <Loading></Loading>
     }
+    
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email,data.password)
     }
@@ -78,7 +82,6 @@ const Login = () => {
         
         </label>
                      </div>
-      
                         <input type="submit" className='btn btn-primary' value='Login' />
                         
                     </form>
