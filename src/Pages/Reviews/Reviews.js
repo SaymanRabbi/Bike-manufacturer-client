@@ -9,7 +9,7 @@ import {faStar } from '@fortawesome/free-solid-svg-icons'
 import "./Reviews.css";
 
 // import required modules
-import { FreeMode, Pagination } from "swiper";
+import { FreeMode, Pagination, Autoplay } from "swiper";
 import { useQuery } from "react-query";
 import Loading from "../Shared/Loading/Loading";
 const Reviews = () => {
@@ -18,20 +18,48 @@ const Reviews = () => {
         return <Loading></Loading>
     }
     return (
-        <div className="mt-5" style={{ height: '400px', backgroundColor: '#090921' }}>
+        <div className="py-5">
         
-      <Swiper 
-        slidesPerView={3}
-        spaceBetween={30}
-        freeMode={true}
+            <Swiper 
+                breakpoints={{
+                    // when window width is >= 640px
+                    480: {
+                      width: 480,
+                      slidesPerView: 1,
+                    },
+                    // when window width is >= 768px
+                    768: {
+                      width: 768,
+                      slidesPerView: 2,
+                    },
+                    1366: {
+                        width: 1366,
+                        slidesPerView:3
+                    },
+                    900: {
+                        width: 1366,
+                        slidesPerView:3
+                    },
+                    1100:{
+                        width: 1366,
+                        slidesPerView:3
+                    }
+                    
+                  }}
+        
+            spaceBetween={30}
+                freeMode={true}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                  }}
         pagination={{
           clickable: true,
         }}
-        modules={[FreeMode, Pagination]}
-        className="mySwiper"
+        modules={[FreeMode, Pagination,Autoplay]}
             >
                 {
-                    reviews.map((review,index) => <SwiperSlide key={index} className="custom my-auto px-3 rounded-md">
+                    reviews.map((review,index) => <SwiperSlide key={index} className="py-3 my-auto px-3 rounded-md">
                      
                         <div>
                             <div className="flex items-center justify-between gap-5">
