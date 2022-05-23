@@ -59,7 +59,7 @@ const Reviews = () => {
         modules={[FreeMode, Pagination,Autoplay]}
             >
                 {
-                    reviews.map((review,index) => <SwiperSlide key={index} className="py-3 my-auto px-3 rounded-md">
+                    (reviews).slice(0,6).map((review,index) => <SwiperSlide key={index} className="py-3 my-auto px-3 rounded-md">
                      
                         <div>
                             <div className="flex items-center justify-between gap-5">
