@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 
 const Product = () => {
+    const navigate = useNavigate()
     const [inputquentity, setInputQuentity] = useState(0)
     const [error,setError] = useState('')
     const [user] = useAuthState(auth)
@@ -57,12 +58,10 @@ const Product = () => {
                 },
                 body:JSON.stringify({product})
             }).then(res => res.json()).then(data => {
-                if (data.success) {
-                    toast.success('success')
-                }
+                // navigate('dashboard/orders')
             })
             //update product
-            fetch(`http://localhost:5000/product/${id}`, {
+            fetch(`http://localhost:5000/product?id=${id}`, {
                 method: "PUT",
                 headers: {
                     'Content-Type': 'application/json',

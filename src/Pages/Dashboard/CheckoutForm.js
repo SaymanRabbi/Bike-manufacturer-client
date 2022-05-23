@@ -1,14 +1,14 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
-
-const CheckoutForm = ({payment}) => {
+const CheckoutForm = ({ payment }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
     const [clientSecret, setClientSecret] = useState("");
-    const [txid,setTxId] = useState('')
-    const {productName,productPrice,email,phone,name,_id} = payment
+  const [txid, setTxId] = useState('')
+  console.log(txid)
+    const {productPrice,email,name,_id} = payment
     useEffect(() => {
         fetch('http://localhost:5000/create-payment-intent', {
             method: "POST",
@@ -44,7 +44,7 @@ const CheckoutForm = ({payment}) => {
     }
     
     // Use your card Element with other Stripe.js APIs
-    const { error, paymentMethod } = await stripe.createPaymentMethod({
+    const { error } = await stripe.createPaymentMethod({
       type: 'card',
       card,
     });
@@ -70,16 +70,24 @@ const CheckoutForm = ({payment}) => {
     else {
       setError('')
       setSuccess('Your Payment is Complited')
-      setTxId(paymentIntent.id)
-      console.log(paymentIntent)
+      setTxId(paymentIntent?.id)
+        //payment information
+        const payment = {
+          appointment: _id,
+          tnxid:paymentIntent?.id
+        }
       fetch(`http://localhost:5000/payment/${_id}`, {
         method: "PATCH",
         headers: {
           'Content-Type': 'application/json',
           'authorization': `Barer ${localStorage.getItem('token')}`
         },
-        body: JSON.stringify({ tnxId: txid })
-      }).then(res => res.json()).then(data => console.log(data))
+        body: JSON.stringify(payment)
+      }).then(res => res.json()).then(data => {
+        if (data.messages) {
+          
+        }
+      })
     };
   }
     return (
@@ -101,7 +109,7 @@ const CheckoutForm = ({payment}) => {
           },
         }}
       />
-      <button type="submit" className='btn btn-sm mt-5' disabled={!stripe ||!clientSecret}>
+      <button type="submit" className='btn btn-sm mt-5' disabled={!stripe ||!clientSecret||success}>
         Pay
       </button>
         </form>
