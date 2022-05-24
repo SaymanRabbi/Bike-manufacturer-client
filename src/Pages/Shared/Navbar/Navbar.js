@@ -3,9 +3,11 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import useAdmin from '../../../hooks/useAdmin';
 
 const Navbar = () => {
   const [user] = useAuthState(auth)
+  const [admin] = useAdmin()
   const logout = () => {
     signOut(auth);
     localStorage.removeItem('token')

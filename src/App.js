@@ -18,8 +18,15 @@ import Review from './Pages/Dashboard/Review';
 import Profile from './Pages/Dashboard/Profile';
 import Payment from './Pages/Dashboard/Payment';
 import UserupdateForm from './Pages/Dashboard/UserupdateForm';
+import useAdmin from './hooks/useAdmin';
+import Admin from './Pages/Admin/Admin';
+import AdminRequireAuth from './Pages/Shared/AdminRequireAuth';
+import ManageProducts from './Pages/Admin/ManageProducts';
+import AddProduct from './Pages/Admin/AddProduct';
+import ManagOrders from './Pages/Admin/ManagOrders';
 
 function App() {
+  const [admin] = useAdmin()
   return (
     <HelmetProvider>
     <div >
@@ -36,12 +43,29 @@ function App() {
           <Route path='/dashboard' element={<RequireAuth>
             <Dashboard></Dashboard>
           </RequireAuth>}>
-            <Route path='orders' element={<Orders></Orders>}></Route>
-            <Route path='review' element={<Review></Review>}></Route>
-            <Route index element={<Profile></Profile>}></Route>
+          <Route index element={<Profile></Profile>}></Route>
+            
+              <Route path='orders' element={<Orders></Orders>}></Route>
+              <Route path='review' element={<Review></Review>}></Route>
             <Route path='payment/:id' element={<Payment></Payment>}></Route>
             <Route path='profile/:id' element={<UserupdateForm></UserupdateForm>}></Route>
+            
+                <Route path='admin' element={<AdminRequireAuth>
+                  <Admin></Admin>
+                </AdminRequireAuth>}></Route>
+                <Route path='managesproducts' element={
+                  <ManageProducts></ManageProducts>
+               }></Route>
+                <Route path='addproducts' element={
+                  <AddProduct></AddProduct>
+                }></Route>
+                <Route path='manageorders' element={
+                  <ManagOrders></ManagOrders>
+                }></Route>
+                
+  
           </Route>
+          
         </Routes>
         <Footer></Footer>
         <ToastContainer></ToastContainer>
