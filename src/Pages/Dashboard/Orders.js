@@ -8,7 +8,7 @@ import Order from './Order';
 
 const Orders = () => {
     const [user]=useAuthState(auth)
-    const { data: orders,isLoading,refetch} = useQuery('orders', () => fetch(`http://localhost:5000/userdata?useremail=${user?.email}`, {
+    const { data: orders,isLoading,refetch} = useQuery('orders', () => fetch(`https://assignment12bike.herokuapp.com/userdata?useremail=${user?.email}`, {
         method: 'GET',
         headers: {
             'authorization': `Barer ${localStorage.getItem('token')}`
@@ -20,8 +20,8 @@ const Orders = () => {
     return (
         <>
             {
-                orders.length>0?<div class="overflow-x-auto">
-                <table class="table w-full">
+                orders.length>0?<div className="overflow-x-auto">
+                <table className="table w-full">
                   <thead>
                     <tr>
                       <th>Number</th>

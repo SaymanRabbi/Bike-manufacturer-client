@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading/Loading';
 import AdminRow from './AdminRow';
 
 const Admin = () => {
-    const { data:users,isLoading,refetch } = useQuery('alluser', () => fetch('http://localhost:5000/getalluser', {
+    const { data:users,isLoading,refetch } = useQuery('alluser', () => fetch('https://assignment12bike.herokuapp.com/getalluser', {
         method: "GET",
         headers: {
             'authorization': `Barer ${localStorage.getItem('token')}`
@@ -14,8 +14,8 @@ const Admin = () => {
         return <Loading></Loading>
     }
     return (
-        <div class="overflow-x-auto">
-     <table class="table w-full">
+        <div className="overflow-x-auto">
+     <table className="table w-full">
     <thead>
       <tr>
         <th></th>

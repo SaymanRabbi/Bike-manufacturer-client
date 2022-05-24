@@ -4,14 +4,14 @@ const useStoreUser = (user) => {
         const email = user?.user?.email
         const userData = { email:email }
         if (email) {
-            fetch(`http://localhost:5000/users?email=${email}`, {
+            fetch(`https://assignment12bike.herokuapp.com/users?email=${email}`, {
                 method: "PUT",
                 headers: {
                     'Content-Type': 'application/json',
                     'authorization': `Barer ${localStorage.getItem('token')}`
                 },
                 body:JSON.stringify(userData)
-            }).then(res=>res.json()).then(data=>console.log(data))
+            }).then(res=>res.json()).then(data=>{})
         }
     }, [user])
 }

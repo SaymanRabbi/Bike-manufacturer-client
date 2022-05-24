@@ -7,7 +7,7 @@ import Loading from '../Shared/Loading/Loading';
 
 const Profile = () => {
     const [user] = useAuthState(auth)
-    const { data: userdata, isLoading } = useQuery('user', () => fetch(`http://localhost:5000/profiledata?useremail=${user.email}`, {
+    const { data: userdata, isLoading } = useQuery('user', () => fetch(`https://assignment12bike.herokuapp.com/profiledata?useremail=${user.email}`, {
         method: 'GET',
         headers: {
             'authorization': `Barer ${localStorage.getItem('token')}`

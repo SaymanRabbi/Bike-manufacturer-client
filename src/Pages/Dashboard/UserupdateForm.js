@@ -17,7 +17,7 @@ const UserupdateForm = () => {
             Number,
             Linkdin
         }
-        fetch(`http://localhost:5000/profiledata/${id}`, {
+        fetch(`https://assignment12bike.herokuapp.com/profiledata/${id}`, {
             method: "PUT",
            
                 headers: {
@@ -29,31 +29,31 @@ const UserupdateForm = () => {
     
 }
     return (
-        <div class="hero min-h-screen bg-base-200">
-        <div class="hero-content flex-col lg:flex-row lg:w-3/4 mx-auto md:w-3/4 w-full">
-<div class="card flex-shrink-0 flex-1 w-full shadow-2xl bg-base-100">
-  <div class="card-body">
+        <div className="hero min-h-screen bg-base-200">
+        <div className="hero-content flex-col lg:flex-row lg:w-3/4 mx-auto md:w-3/4 w-full">
+<div className="card flex-shrink-0 flex-1 w-full shadow-2xl bg-base-100">
+  <div className="card-body">
                     <form action="" onSubmit={Updateprofile}>
-                    <div class="form-control mb-3">
-      <input type="text" name='education' placeholder='education' class="input input-bordered" required/>
+                    <div className="form-control mb-3">
+      <input type="text" name='education' placeholder='education' className="input input-bordered" required/>
     </div>
-                    <div class="form-control  mb-3">
-      <input type="text"name='location' placeholder='Your Location' class="input input-bordered" required/>
+                    <div className="form-control  mb-3">
+      <input type="text"name='location' placeholder='Your Location' className="input input-bordered" required/>
     </div>
 
-    <div class="form-control mb-3">
+    <div className="form-control mb-3">
      </div>
-     <div class="form-control mb-3">
-      <input type="number" placeholder='Phone Number' name='phone'  class="input input-bordered" required/>
+     <div className="form-control mb-3">
+      <input type="number" placeholder='Phone Number' name='phone'  className="input input-bordered" required/>
                         </div>
-    <div class="form-control mb-3">
-      <input type="text" placeholder='Your LinkedIn Link' name='Linkdin' class="input input-bordered" required/>
+    <div className="form-control mb-3">
+      <input type="text" placeholder='Your LinkedIn Link' name='Linkdin' className="input input-bordered" required/>
     </div>
-    <div class="form-control mb-3">
+    <div className="form-control mb-3">
                         </div>
                         
-                        <div class="form-control mt-6">
-      <button class="btn btn-primary">Edit profile</button>
+                        <div className="form-control mt-6">
+      <button className="btn btn-primary">Edit profile</button>
     </div>
     </form>
   </div>

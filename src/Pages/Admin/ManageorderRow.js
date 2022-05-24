@@ -15,7 +15,7 @@ const ManageorderRow = ({ user, index,refetch }) => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
               if (result.isConfirmed) {
-                  fetch(`http://localhost:5000/delete/${id}`, {
+                  fetch(`https://assignment12bike.herokuapp.com/delete/${id}`, {
                     method:"DELETE"
                   }).then(res => res.json()).then(data => {
                     refetch()

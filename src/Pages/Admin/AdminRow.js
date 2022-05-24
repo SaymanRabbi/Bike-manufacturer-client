@@ -2,7 +2,7 @@ import React from 'react';
 
 const AdminRow = ({ user, index,refetch }) => {
     const makeAdmin = (email) => {
-        fetch(`http://localhost:5000/email/admin?email=${email}`, {
+        fetch(`https://assignment12bike.herokuapp.com/email/admin?email=${email}`, {
             method: "PUT",
             headers: {
                 'Content-Type': 'application/json',

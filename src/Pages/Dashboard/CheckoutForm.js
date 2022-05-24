@@ -10,7 +10,7 @@ const CheckoutForm = ({ payment }) => {
   console.log(txid)
     const {productPrice,email,name,_id} = payment
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://assignment12bike.herokuapp.com/create-payment-intent', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ const CheckoutForm = ({ payment }) => {
           appointment: _id,
           tnxid:paymentIntent?.id
         }
-      fetch(`http://localhost:5000/payment/${_id}`, {
+      fetch(`https://assignment12bike.herokuapp.com/payment/${_id}`, {
         method: "PATCH",
         headers: {
           'Content-Type': 'application/json',

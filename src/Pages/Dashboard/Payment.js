@@ -8,7 +8,7 @@ import CheckoutForm from './CheckoutForm';
 const stripePromise = loadStripe('pk_test_51L18RMLQwFCfbG4umFA2Cu1NjkMVlkeDCGz41ovrJxahhMu72OBOiVyFUDyQKzLkPD7IUi4tMMvUFaXUbh8XB5dX00yu3DrhGH');
 const Payment = () => {
     const { id } = useParams()
-    const { data: payment, isLoading } = useQuery(['payment', id], () => fetch(`http://localhost:5000/payment/${id}`, {
+    const { data: payment, isLoading } = useQuery(['payment', id], () => fetch(`https://assignment12bike.herokuapp.com/payment/${id}`, {
         method: 'GET',
         headers: {
             'authorization': `Barer ${localStorage.getItem('token')}`

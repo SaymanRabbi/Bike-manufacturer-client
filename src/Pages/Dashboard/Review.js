@@ -35,7 +35,7 @@ const Review = () => {
                 text: data.feedback,
                 image:img
               }
-              fetch('http://localhost:5000/review', {
+              fetch('https://assignment12bike.herokuapp.com/review', {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
@@ -54,32 +54,32 @@ const Review = () => {
                   
     }
     return (
-      <div class="hero">
-        <div class="hero-content flex-col lg:flex-row lg:w-2/4 mx-auto md:w-3/4 w-full">
-    <div class="card flex-shrink-0 w-full shadow-2xl ">
-      <div class="card-body">
+      <div className="hero">
+        <div className="hero-content flex-col lg:flex-row lg:w-2/4 mx-auto md:w-3/4 w-full">
+    <div className="card flex-shrink-0 w-full shadow-2xl ">
+      <div className="card-body">
                         <form action="" onSubmit={handleSubmit(Updateproduct)}>
-                        <div class="form-control mb-3">
+                        <div className="form-control mb-3">
                                 <input type="text" value={user?.displayName} {...register("name",{ required: true})} readOnly/>
        </div>
         
         
-         <div class="form-control mb-3">
+         <div className="form-control mb-3">
          <MyComponent setRatings={setRatings}></MyComponent>
                 </div>
-                <div class="form-control mb-3">
+                <div className="form-control mb-3">
           <input type="file" {...register("image",{ required: true})} className=' w-60' required/>
         </div>
-        <div class="form-control mb-3">
-          <textarea type="text" placeholder='Write Your Some Feedback' {...register("feedback",{ required: true})} class="input input-bordered" required/>
+        <div className="form-control mb-3">
+          <textarea type="text" placeholder='Write Your Some Feedback' {...register("feedback",{ required: true})} className="input input-bordered" required/>
         </div>
        
-        <div class="form-control mb-3">
+        <div className="form-control mb-3">
           
                             </div>
                             
-                            <div class="form-control mt-6">
-                  <button class="btn btn-primary">Submit Review</button>
+                            <div className="form-control mt-6">
+                  <button className="btn btn-primary">Submit Review</button>
                  
         </div>
         </form>

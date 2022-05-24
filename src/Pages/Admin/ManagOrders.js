@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading/Loading';
 import ManageorderRow from './ManageorderRow';
 
 const ManagOrders = () => {
-    const { data:orderdata,isLoading,refetch} = useQuery('orderdata',() => fetch('http://localhost:5000/orderdata', {
+    const { data:orderdata,isLoading,refetch} = useQuery('orderdata',() => fetch('https://assignment12bike.herokuapp.com/orderdata', {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -15,8 +15,8 @@ const ManagOrders = () => {
         return <Loading></Loading>
     }
     return (
-        <div class="overflow-x-auto">
-     <table class="table w-full">
+        <div className="overflow-x-auto">
+     <table className="table w-full">
     <thead>
       <tr>
         <th></th>

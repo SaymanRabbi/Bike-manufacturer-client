@@ -37,7 +37,7 @@ const Updateproduct = (data) => {
               description:data.description,
               minquantity:data.minquantity
           }
-          fetch('http://localhost:5000/addproduct', {
+          fetch('https://assignment12bike.herokuapp.com/addproduct', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -56,33 +56,33 @@ const Updateproduct = (data) => {
               
 }
     return (
-        <div class="hero min-h-screen bg-base-200">
-        <div class="hero-content flex-col lg:flex-row lg:w-2/4 mx-auto md:w-3/4 w-full">
-<div class="card flex-shrink-0  w-full shadow-2xl bg-base-100">
-  <div class="card-body">
+        <div className="hero min-h-screen bg-base-200">
+        <div className="hero-content flex-col lg:flex-row lg:w-2/4 mx-auto md:w-3/4 w-full">
+<div className="card flex-shrink-0  w-full shadow-2xl bg-base-100">
+  <div className="card-body">
                     <form action="" onSubmit={handleSubmit(Updateproduct)}>
-                    <div class="form-control mb-3">
-               <input type="text" placeholder='Product Name'  {...register("name",{ required: true})} class="input input-bordered" required/>
+                    <div className="form-control mb-3">
+               <input type="text" placeholder='Product Name'  {...register("name",{ required: true})} className="input input-bordered" required/>
               </div>
-    <div class="form-control  mb-3">
+    <div className="form-control  mb-3">
       <input type="file" {...register("image",{ required: true})} required/>
     </div>
-    <div class="form-control mb-3">
-      <input type="number" placeholder='Product Quentity'  {...register("quantity",{ required: true})} class="input input-bordered"/>
+    <div className="form-control mb-3">
+      <input type="number" placeholder='Product Quentity'  {...register("quantity",{ required: true})} className="input input-bordered"/>
      </div>
-    <div class="form-control mb-3">
+    <div className="form-control mb-3">
      </div>
-     <div class="form-control mb-3">
-      <input type="number" placeholder='Product Price' {...register("price",{ required: true})}  class="input input-bordered" required/>
+     <div className="form-control mb-3">
+      <input type="number" placeholder='Product Price' {...register("price",{ required: true})}  className="input input-bordered" required/>
      </div>
-     <div class="form-control mb-3">
-      <input type="number" placeholder='Minumum Product Quentity' {...register("minquantity",{ required: true})}  class="input input-bordered" required/>
+     <div className="form-control mb-3">
+      <input type="number" placeholder='Minumum Product Quentity' {...register("minquantity",{ required: true})}  className="input input-bordered" required/>
      </div>
-     <div class="form-control mb-3">
-      <textarea type="number" placeholder='Product Discription' {...register("description",{ required: true})}  class="input input-bordered" required/>
+     <div className="form-control mb-3">
+      <textarea type="number" placeholder='Product Discription' {...register("description",{ required: true})}  className="input input-bordered" required/>
      </div>
-                        <div class="form-control mt-6">
-      <button class="btn btn-primary">Add Product</button>
+                        <div className="form-control mt-6">
+      <button className="btn btn-primary">Add Product</button>
     </div>
     </form>
   </div>

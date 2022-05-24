@@ -11,7 +11,7 @@ const Product = () => {
     const [error,setError] = useState('')
     const [user] = useAuthState(auth)
     const { id } = useParams()
-    const { data: product, isLoading } = useQuery(['product', id], () => fetch(`http://localhost:5000/product/${id}`, {
+    const { data: product, isLoading } = useQuery(['product', id], () => fetch(`https://assignment12bike.herokuapp.com/product/${id}`, {
         method: 'GET',
         headers: {
             'authorization': `Barer ${localStorage.getItem('token')}`
@@ -49,7 +49,7 @@ const Product = () => {
             }
             const productupdate = productquentity - quentityValue;
            //post user product
-            fetch('http://localhost:5000/product', {
+            fetch('https://assignment12bike.herokuapp.com/product', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ const Product = () => {
                 // navigate('dashboard/orders')
             })
             //update product
-            fetch(`http://localhost:5000/product?id=${id}`, {
+            fetch(`https://assignment12bike.herokuapp.com/product?id=${id}`, {
                 method: "PUT",
                 headers: {
                     'Content-Type': 'application/json',
@@ -78,38 +78,38 @@ const Product = () => {
     
     return (
         
-        <div class="hero min-h-screen bg-base-200">
-            <div class="hero-content flex-col lg:flex-row lg:w-3/4 mx-auto md:w-3/4 w-full">
-            <div class="flex-1 rounded">
+        <div className="hero min-h-screen bg-base-200">
+            <div className="hero-content flex-col lg:flex-row lg:w-3/4 mx-auto md:w-3/4 w-full">
+            <div className="flex-1 rounded">
              <img src={image} className='w-full' alt="" />
     </div>
-    <div class="card flex-shrink-0 flex-1 w-full shadow-2xl bg-base-100">
-      <div class="card-body">
+    <div className="card flex-shrink-0 flex-1 w-full shadow-2xl bg-base-100">
+      <div className="card-body">
                         <form action="" onSubmit={Updateproduct}>
-                        <div class="form-control mb-3">
-          <input type="text" value={user?.displayName} name='name' class="input input-bordered" readOnly/>
+                        <div className="form-control mb-3">
+          <input type="text" value={user?.displayName} name='name' className="input input-bordered" readOnly/>
         </div>
-                        <div class="form-control  mb-3">
-          <input type="email" value={user?.email} name='email' class="input input-bordered" readOnly/>
+                        <div className="form-control  mb-3">
+          <input type="email" value={user?.email} name='email' className="input input-bordered" readOnly/>
         </div>
-        <div class="form-control mb-3">
-          <input type="text" value={name} name='productName' class="input input-bordered" readOnly/>
+        <div className="form-control mb-3">
+          <input type="text" value={name} name='productName' className="input input-bordered" readOnly/>
          </div>
-        <div class="form-control mb-3">
+        <div className="form-control mb-3">
                                 <p className='text-xl text-primary'>Avilabel Product {productquentity}</p>
          </div>
-         <div class="form-control mb-3">
-          <input type="number" placeholder='Phone Number' name='phone'  class="input input-bordered" required/>
+         <div className="form-control mb-3">
+          <input type="number" placeholder='Phone Number' name='phone'  className="input input-bordered" required/>
                             </div>
-        <div class="form-control mb-3">
-          <textarea type="text" placeholder='Your Address' name='address' class="input input-bordered" required/>
+        <div className="form-control mb-3">
+          <textarea type="text" placeholder='Your Address' name='address' className="input input-bordered" required/>
         </div>
-        <div class="form-control mb-3">
-          <input type="number" placeholder={`Minimun Add ${minquantity} Product`}  class="input input-bordered" onChange={(e)=>setInputQuentity(e.target.value)}  required/>
+        <div className="form-control mb-3">
+          <input type="number" placeholder={`Minimun Add ${minquantity} Product`}  className="input input-bordered" onChange={(e)=>setInputQuentity(e.target.value)}  required/>
                             </div>
                             {quentityValue?<p className='text-red-500 '><span>{error}</span></p>:''}
-                            <div class="form-control mt-6">
-          <button class="btn btn-primary" disabled={quentityValue<minquantityvalue||quentityValue>productquentity}>Confirm Order</button>
+                            <div className="form-control mt-6">
+          <button className="btn btn-primary" disabled={quentityValue<minquantityvalue||quentityValue>productquentity}>Confirm Order</button>
         </div>
         </form>
       </div>

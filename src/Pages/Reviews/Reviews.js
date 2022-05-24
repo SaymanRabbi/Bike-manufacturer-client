@@ -13,7 +13,7 @@ import { FreeMode, Pagination, Autoplay } from "swiper";
 import { useQuery } from "react-query";
 import Loading from "../Shared/Loading/Loading";
 const Reviews = () => {
-    const { data: reviews, isLoading } = useQuery('review', () => fetch('http://localhost:5000/review').then(res => res.json()))
+    const { data: reviews, isLoading } = useQuery('review', () => fetch('https://assignment12bike.herokuapp.com/review').then(res => res.json()))
     if (isLoading) {
         return <Loading></Loading>
     }

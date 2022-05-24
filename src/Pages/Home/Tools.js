@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading/Loading';
 import Tool from './Tool';
 
 const Tools = () => {
-    const { data:tools, isLoading } = useQuery('tools', () => fetch('http://localhost:5000/tools', {
+    const { data:tools, isLoading } = useQuery('tools', () => fetch('https://assignment12bike.herokuapp.com/tools', {
         method: 'GET',
         headers: {
             'authorization': `Barer ${localStorage.getItem('token')}`
