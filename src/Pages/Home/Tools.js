@@ -20,7 +20,7 @@ const Tools = () => {
             </h1>
             <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5'>
                 {
-                  tools.map(data => <Tool tool={data} key={data._id}></Tool>)
+                  (tools).slice(0,6).map(data => <Tool tool={data} key={data._id}></Tool>)
                 }
             </div>
         </div>

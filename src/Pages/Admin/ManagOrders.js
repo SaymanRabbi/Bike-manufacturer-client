@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading/Loading';
 import ManageorderRow from './ManageorderRow';
 
 const ManagOrders = () => {
-    const { data:orderdata,isLoading} = useQuery('orderdata',() => fetch('http://localhost:5000/orderdata', {
+    const { data:orderdata,isLoading,refetch} = useQuery('orderdata',() => fetch('http://localhost:5000/orderdata', {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ const ManagOrders = () => {
     <tbody>
       
                     {
-                        orderdata.map((user,index)=><ManageorderRow index={index}  key={user._id} user={user}></ManageorderRow>)
+                        orderdata.map((user,index)=><ManageorderRow refetch={refetch} index={index}  key={user._id} user={user}></ManageorderRow>)
       }
       
     </tbody>

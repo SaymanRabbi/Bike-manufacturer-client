@@ -2,8 +2,8 @@ import React from 'react';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 
-const ManageorderRow = ({ user, index,refetch }) => {
-    const { email, paid, quentityValue, productPrice,_id } = user
+const ManageProductRow = ({ user, index,refetch }) => {
+    const { name, quantity,_id } = user
     const deletePd = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -15,11 +15,11 @@ const ManageorderRow = ({ user, index,refetch }) => {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
               if (result.isConfirmed) {
-                  fetch(`http://localhost:5000/delete/${id}`, {
+                  fetch(`http://localhost:5000/deletepd/${id}`, {
                     method:"DELETE"
                   }).then(res => res.json()).then(data => {
-                    refetch()
-                    toast.success('Delete Sucess')
+                      toast.success('Delete Sucess')
+                      refetch()
                 })
               Swal.fire(
                 'Deleted!',
@@ -32,13 +32,12 @@ const ManageorderRow = ({ user, index,refetch }) => {
     return (
         <tr>
         <th>{ index+1}</th>
-        <td>{email}</td>
-            <td>{quentityValue}</td>
-            <td>{productPrice}</td>
-            
-        <td>{paid? <span className='text-xl font-bold uppercase btn btn-sm'>Paid</span>:<span className='btn btn-sm' onClick={()=>deletePd(_id)}>Cancel order</span>}</td>
+        <td className='text-xl text-primary'>{name}</td>
+            <td>{quantity}</td>
+            <td><button className='btn btn-sm' onClick={()=>deletePd(_id)}>Delete PD</button></td>
+            <td><button className='btn btn-sm'>Update PD</button></td>
   </tr>
     );
 };
 
-export default ManageorderRow;
+export default ManageProductRow;
