@@ -25,7 +25,7 @@ const Profile = () => {
                 <img src={user?.photoURL?user?.photoURL:'https://i.ibb.co/PhHRTcd/download.jpg'} alt="" className='flex mx-auto w-40 rounded-full' />
                 </div>
                 <div className='w-3/4 mx-auto py-3  text-primary'>
-                    <h2><span className=' font-bold'>LinkDin Profile Link</span> : {userdata?.Linkdin?userdata?.Linkdin:'Please Add A link'}</h2>
+                    <h2><span className=' font-bold'>LinkDin Profile Link</span> : {userdata?.Linkdin?<span className='link'>{userdata?.Linkdin}</span>:'Please Add A link'}</h2>
                     <h2><span className=' font-bold'>Education</span> : {userdata?.education?userdata?.education:'Please Add Your Information'}</h2>
                     <h2><span className=' font-bold'>Location</span> : {userdata.location?userdata.location:'Add Loacation'}</h2>
                     <h2><span className=' font-bold'>Phone Number</span> : {userdata?.Number ? userdata?.Number : 'Plaease Add Phone Number'}</h2>

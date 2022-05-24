@@ -18,7 +18,6 @@ import Review from './Pages/Dashboard/Review';
 import Profile from './Pages/Dashboard/Profile';
 import Payment from './Pages/Dashboard/Payment';
 import UserupdateForm from './Pages/Dashboard/UserupdateForm';
-import useAdmin from './hooks/useAdmin';
 import Admin from './Pages/Admin/Admin';
 import AdminRequireAuth from './Pages/Shared/AdminRequireAuth';
 import ManageProducts from './Pages/Admin/ManageProducts';
@@ -26,7 +25,6 @@ import AddProduct from './Pages/Admin/AddProduct';
 import ManagOrders from './Pages/Admin/ManagOrders';
 
 function App() {
-  const [admin] = useAdmin()
   return (
     <HelmetProvider>
     <div >
@@ -54,13 +52,19 @@ function App() {
                   <Admin></Admin>
                 </AdminRequireAuth>}></Route>
                 <Route path='managesproducts' element={
-                  <ManageProducts></ManageProducts>
+              <AdminRequireAuth>
+                <ManageProducts></ManageProducts>
+                  </AdminRequireAuth>
                }></Route>
                 <Route path='addproducts' element={
-                  <AddProduct></AddProduct>
+              <AdminRequireAuth>
+                <AddProduct></AddProduct>
+                  </AdminRequireAuth>
                 }></Route>
                 <Route path='manageorders' element={
-                  <ManagOrders></ManagOrders>
+              <AdminRequireAuth>
+                <ManagOrders></ManagOrders>
+                  </AdminRequireAuth>
                 }></Route>
                 
   

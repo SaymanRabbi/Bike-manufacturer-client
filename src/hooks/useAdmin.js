@@ -12,7 +12,6 @@ const useAdmin = () => {
                 'authorization': `Barer ${localStorage.getItem('token')}`
         }
     }).then(res => res.json()).then(data => {
-        console.log(data)
         setAdmin(data.admin)
         setAdminLoadig(false)
     }) 
