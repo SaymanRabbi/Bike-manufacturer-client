@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import MyComponent from './Rating';
 const Review = () => {
+  const [ratings, setRatings] = useState(0)
     const {
         register,
         handleSubmit,
@@ -29,7 +31,7 @@ const Review = () => {
               const img = result.data.url;
               const review= {
                 name: data.name,
-                rating: data.rating,
+                rating: ratings,
                 text: data.feedback,
                 image:img
               }
@@ -52,31 +54,33 @@ const Review = () => {
                   
     }
     return (
-        <div class="hero  bg-base-200">
-            <div class="hero-content flex-col lg:flex-row lg:w-3/4 mx-auto md:w-3/4 w-full">
-    <div class="card flex-shrink-0 w-full shadow-2xl bg-base-100">
+      <div class="hero">
+        <div class="hero-content flex-col lg:flex-row lg:w-2/4 mx-auto md:w-3/4 w-full">
+    <div class="card flex-shrink-0 w-full shadow-2xl ">
       <div class="card-body">
                         <form action="" onSubmit={handleSubmit(Updateproduct)}>
                         <div class="form-control mb-3">
-                                <input type="text" value={user?.displayName} {...register("name",{ required: true})} class="input input-bordered" readOnly/>
+                                <input type="text" value={user?.displayName} {...register("name",{ required: true})} readOnly/>
        </div>
         
         
          <div class="form-control mb-3">
-          <input type="number" placeholder='Rating' {...register("rating",{ required: true})} min='1' max='5'  class="input input-bordered" required/>
-                            </div>
+         <MyComponent setRatings={setRatings}></MyComponent>
+                </div>
+                <div class="form-control mb-3">
+          <input type="file" {...register("image",{ required: true})} className=' w-60' required/>
+        </div>
         <div class="form-control mb-3">
           <textarea type="text" placeholder='Write Your Some Feedback' {...register("feedback",{ required: true})} class="input input-bordered" required/>
         </div>
-        <div class="form-control mb-3">
-          <input type="file" {...register("image",{ required: true})} className=' w-60' required/>
-        </div>
+       
         <div class="form-control mb-3">
           
                             </div>
                             
                             <div class="form-control mt-6">
-          <button class="btn btn-primary">Submit Review</button>
+                  <button class="btn btn-primary">Submit Review</button>
+                 
         </div>
         </form>
       </div>

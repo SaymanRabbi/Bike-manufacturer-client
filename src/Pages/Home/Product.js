@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading/Loading';
 
 const Product = () => {
-    const navigate = useNavigate()
     const [inputquentity, setInputQuentity] = useState(0)
     const [error,setError] = useState('')
     const [user] = useAuthState(auth)
@@ -19,7 +18,7 @@ const Product = () => {
         }
     }).then(res => res.json()))
     const { name,quantity, price, image, minquantity } = product||{}
-    const quentityValue = parseInt(inputquentity||0)
+    const quentityValue = parseInt(inputquentity)
     const productquentity = parseInt(quantity)
     const minquantityvalue = parseInt(minquantity)
     useEffect(() => {
@@ -116,7 +115,7 @@ const Product = () => {
       </div>
     </div>
   </div>
-</div>
+       </div>
     );
 };
 

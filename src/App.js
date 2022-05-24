@@ -17,6 +17,7 @@ import Orders from './Pages/Dashboard/Orders';
 import Review from './Pages/Dashboard/Review';
 import Profile from './Pages/Dashboard/Profile';
 import Payment from './Pages/Dashboard/Payment';
+import UserupdateForm from './Pages/Dashboard/UserupdateForm';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route path='review' element={<Review></Review>}></Route>
             <Route index element={<Profile></Profile>}></Route>
             <Route path='payment/:id' element={<Payment></Payment>}></Route>
+            <Route path='profile/:id' element={<UserupdateForm></UserupdateForm>}></Route>
           </Route>
         </Routes>
         <Footer></Footer>
