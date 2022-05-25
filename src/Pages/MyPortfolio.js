@@ -6,10 +6,11 @@ import project3 from '../Images/project3.png'
 
 const MyPortfolio = () => {
     return (
-        <div className='flex justify-center items-center my-5' style={{minHeight:'100vh'}}>
+        <div className='mb-5'>
+              <div className='flex justify-center items-center my-5' style={{minHeight:'100vh'}}>
             <div className=' py-5 lg:w-2/4 md:w-3/4 w-full shadow-2xl rounded-md'>
                 <div className='w-2/4 mx-auto'>
-                    <img src={person} className=' w-32 rounded-full flex mx-auto' alt="" />
+                    <img src={person} className='w-52 rounded-full flex mx-auto' alt="" />
                 </div>
         <div class="card w-3/4 mx-auto text-primary-content">
          <div class="card-body text-black">
@@ -28,24 +29,30 @@ const MyPortfolio = () => {
                         <li>Node Js, MongoDB, Firebase, Tailwind CSS, Express Js</li>
                         <p className='text-xl font-bold'>Tools</p>
                         <li>Vs Code, Github, Chrome Dev Tools, Netlify, Heroku, Figma, Postman, npm</li>
-                        <div className='grid grid-cols-3'>
-                            <div className='mx-auto'>
-                            <h1 className=' text-base font-bold lowercase'>MEN'S PERFEUM <a  className='link text-primary' href='https://assignment-11-c3aa0.web.app/' target="_blank" rel="noreferrer">Live</a></h1>
-                            <img src={project1} className=' h-40 flex mx-auto' alt="" />
-                        </div>
-                            <div className='mx-auto'>
-                            <h1 className='text-base font-bold lowercase'>Task manager <a className=' link text-primary' href='https://skill-test-3664a.web.app/' target="_blank" rel="noreferrer">live</a></h1>
-                            <img src={project2} className=' h-40 flex mx-auto' alt="" />
-                        </div>
-                            <div className='mx-auto'>
-                            <h1 className='text-base font-bold lowercase'>Clone Netlify <a className=' link text-primary' href='https://saymanrabbi.github.io/Clone-netlifly/index.html' target="_blank" rel="noreferrer">live</a></h1>
-                            <img src={project3} className=' h-40 felx mx-auto' alt="" />
-                        </div>
-                        </div>
-  </div>
-</div>
+                </div>
+               </div>
            </div>
-        </div>
+            </div>
+            <h3 className='text-3xl text-center mt-5 mb-2 font-bold text-primary'>My Project</h3>
+            <small className='text-center block  font-bold'>Click image And Go to Live</small>
+               <div className='px-5 grid md:grid-cols-2 grid-cols-2 lg:grid-cols-3 gap-5'>
+                <div className='h-52 overflow-scroll'>
+                    <a href='https://assignment-11-c3aa0.web.app/' target="_blank" rel="noreferrer">
+                    <img src={project1} className='w-full' alt="" />
+                    </a>
+                </div>
+                <div className='h-52 overflow-scroll'>
+                    <a href='https://skill-test-3664a.web.app/' target="_blank" rel="noreferrer">
+                        <img src={project2} className='w-full' alt="" />
+                        </a>
+                </div>
+                <div className='h-52 overflow-scroll'>
+                    <a href='https://saymanrabbi.github.io/Clone-netlifly/index.html' target="_blank" rel="noreferrer">
+                        <img src={project3} className='w-full' alt="" />
+                        </a>
+                </div>
+              </div>
+            </div>
     );
 };
 
