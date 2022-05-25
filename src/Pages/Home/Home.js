@@ -5,6 +5,7 @@ import BusinessSummary from './BusinessSummary';
 import Tools from './Tools';
 import ScrollToTop from "react-scroll-to-top";
 import Whatwebuild from '../Whatwebuild/Whatwebuild';
+import Contactus from '../Contactus';
 
 const Home = () => {
     return (
@@ -21,6 +22,7 @@ const Home = () => {
                 </div>
             <Reviews></Reviews>
             </div>
+            <Contactus></Contactus>
         </div>
     );
 };

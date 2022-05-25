@@ -14,11 +14,9 @@ const Tools = () => {
         return <Loading></Loading>
     }
     return (
-        <div className='py-10'>
-            <h1 className='text-primary text-3xl text-center font-bold mb-10'>
-            Motorcycle Tools & Tool Kits
-            </h1>
-            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5'>
+        <div className='py-10 bg-gray-100'>
+             <h2 className='text-5xl text-center font-bold text-primary my-10 mb-20'> Motorcycle Tools & <span className=' w-fit' style={{borderBottom:'3px solid black'}}>Tool Kits</span></h2>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10'>
                 {
                   (tools).slice(0,6).map(data => <Tool tool={data} key={data._id}></Tool>)
                 }

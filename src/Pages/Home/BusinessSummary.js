@@ -6,8 +6,8 @@ import './BusinessSummary.css'
 const BusinessSummary = () => {
     const [user] = useAuthState(auth)
     return (
-        <div className='w-3/4 mx-auto'>
-        <div class="stats shadow-lg  h-40 rounded w-full">
+        <div className='w-3/4 mx-auto py-5'>
+        <div class="stats  shadow-2xl  h-40  rounded-md w-full">
   
   <div class="stat">
     <div class="stat-figure text-primary">

@@ -1,15 +1,29 @@
-import axios from "axios"
 import { useEffect, useState } from "react"
 
 const useToken = (user) => {
+    console.log(user)
     const [token,setToken]=useState('')
     useEffect(() => {
         const gettoken = async () => {
-            const emails =user?.user?.email
+            const emails = user?.user?.email
+            console.log(emails)
             if (emails) {
-                const { data } = await axios.post('https://assignment12bike.herokuapp.com/token',{ emails })
-            localStorage.setItem('token', data.createToken)
-            setToken(data.createToken)
+                fetch(`https://assignment12bike.herokuapp.com/token?email=${emails}`, {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.json()).then(data => {
+                    localStorage.setItem('token', data.createToken)
+                    setToken(data.createToken)
+             })
+
+
+
+
+
+        //         const { data } = await axios.post(`https://assignment12bike.herokuapp.com/token?email=${emails}`,{ emails })
+            
            }
         }
         gettoken()
