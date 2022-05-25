@@ -3,7 +3,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faScrewdriverWrench } from '@fortawesome/free-solid-svg-icons'
-
+import {Link} from 'react-scroll';
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -13,7 +13,6 @@ import "./Banner.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
-
 const Banner = () => {
     return (
         <>
@@ -36,7 +35,8 @@ const Banner = () => {
                         <div className="w-full md:w-3/4 lg:w-2/4">
                             <h1 className="text-4xl mb-3 text-white font-bold uppercase">The Classic Backstory</h1>
                             <h6 className="text-white mb-5">Through historical references, stories and anecdotes shared by our key collaborators, we would like to take you</h6>
-                            <button className="btn btn-primary">More Tools <FontAwesomeIcon className=" ml-2" icon={faScrewdriverWrench}></FontAwesomeIcon></button>
+                <Link to="anchor" spy={true} smooth={true} duration={500} className="btn btn-primary">More Tools <FontAwesomeIcon className=" ml-2" icon={faScrewdriverWrench}></FontAwesomeIcon></Link>
+                
                          </div>
                      </div>
                   </SwiperSlide>
@@ -45,7 +45,7 @@ const Banner = () => {
                 <div className=" w-full md:w-3/4 lg:w-2/4">
                 <h1 className="text-4xl mb-3 text-white font-bold uppercase">Timeless Classic</h1>
                             <h6 className="text-white mb-5">The All-New Classic 350 continues to embody the traditions and craftsmanship of the past as it is reborn. </h6>
-                            <button className="btn btn-primary">More Tools <FontAwesomeIcon className=" ml-2" icon={faScrewdriverWrench}></FontAwesomeIcon></button>
+                            <Link to="anchor" spy={true} smooth={true} duration={500} className="btn btn-primary">More Tools <FontAwesomeIcon className=" ml-2" icon={faScrewdriverWrench}></FontAwesomeIcon></Link>
                               
                          </div>
                      </div>
@@ -55,7 +55,7 @@ const Banner = () => {
                 <div className=" w-full md:w-3/4 lg:w-2/4">
                 <h1 className="text-4xl mb-3 text-white font-bold uppercase">A Refined Glide</h1>
                             <h6 className="text-white mb-5">With an enhanced chassis setup, accessible riding position, advanced braking ability, high specification suspension</h6>
-                            <button className="btn btn-primary">More Tools <FontAwesomeIcon className=" ml-2" icon={faScrewdriverWrench}></FontAwesomeIcon></button>
+                            <Link to="anchor" spy={true} smooth={true} duration={500} className="btn btn-primary">More Tools <FontAwesomeIcon className=" ml-2" icon={faScrewdriverWrench}></FontAwesomeIcon></Link>
                               
                          </div>
                      </div>

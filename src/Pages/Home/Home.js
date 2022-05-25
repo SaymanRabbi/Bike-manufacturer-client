@@ -3,10 +3,12 @@ import Reviews from '../Reviews/Reviews';
 import Banner from './Banner';
 import BusinessSummary from './BusinessSummary';
 import Tools from './Tools';
+import ScrollToTop from "react-scroll-to-top";
 
 const Home = () => {
     return (
         <div style={{ minHeight: '100vh' }}>
+            <ScrollToTop smooth />
             <Banner></Banner>
             <Tools/>
             <BusinessSummary></BusinessSummary>
