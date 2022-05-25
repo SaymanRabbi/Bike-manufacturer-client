@@ -30,7 +30,7 @@ const ManageorderRow = ({ user, index,refetch }) => {
           })
   }
   const updatePd = (_id) => {
-    fetch(`http://localhost:5000/shipped/${_id}`, {
+    fetch(` https://assignment12bike.herokuapp.com/shipped/${_id}`, {
       method: "PATCH"
     }).then(res => res.json()).then(data => {
       if (data.messages) {
