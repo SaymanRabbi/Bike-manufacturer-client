@@ -46,7 +46,7 @@ const ManageorderRow = ({ user, index,refetch }) => {
             <td>{quentityValue}</td>
             <td>{productPrice}</td>
             
-        <td>{paid && shipped ? <button className='text-xl font-bold uppercase btn btn-sm' >shipped</button> : ''}
+        <td className='flex gap-3'>{paid && shipped ? <button className='text-xl font-bold uppercase btn btn-sm' >shipped</button> : ''}
           {
             paid?<button className='text-xl font-bold uppercase btn btn-sm' disabled={paid && shipped} onClick={() => updatePd(_id)}>Pending</button>:<span className='btn btn-sm' onClick={() => deletePd(_id)}>Unpaid</span>
         }
