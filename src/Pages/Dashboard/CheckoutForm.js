@@ -113,6 +113,7 @@ const CheckoutForm = ({ payment }) => {
         Pay
       </button>
         </form>
+     
             {
                 error && <p className='text-red-500'><span>{error}</span></p>
             }

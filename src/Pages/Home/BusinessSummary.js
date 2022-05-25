@@ -18,7 +18,7 @@ const BusinessSummary = () => {
                     {/* 120M+ Annual revenue */}
                         <h2 className=''><FontAwesomeIcon className='lg:text-5xl text-3xl text-white' icon={faHandHoldingDollar} /></h2>
                         <h1 className='text-primary my-3 text-3xl font-bold uppercase'>{<CountUp end={120} />}M+</h1>
-                        <h2 className=' text-white lg:text-3xl font-bold uppercase text-xl'>Annual revenue</h2>
+                        <h2 className=' text-white lg:text-3xl font-bold uppercase text-xl'>revenue</h2>
             </div>
             <div className='mx-auto text-center'>
                         {/* <h2 className='text-white text-2xl font-bold uppercase'>{<CountUp end={33}/>}K+ Reviews <FontAwesomeIcon className='text-4xl' icon={faStar}/></h2> */}

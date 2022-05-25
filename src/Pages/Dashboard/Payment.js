@@ -18,7 +18,7 @@ const Payment = () => {
         return <Loading></Loading>
     }
     
-    const {productName,productPrice,email,phone} = payment
+    const {productName,productPrice,email,phone} = payment ||{}
     return (
         <div>
         <div className="card w-2/4 bg-base-100 max-w-md shadow-xl my-12">

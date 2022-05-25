@@ -30,15 +30,15 @@ const MyPortfolio = () => {
                         <li>Vs Code, Github, Chrome Dev Tools, Netlify, Heroku, Figma, Postman, npm</li>
                         <div className='grid grid-cols-3'>
                             <div className='mx-auto'>
-                            <h1 className=' text-base font-bold lowercase'>MEN'S PERFEUM <a  className='link text-primary' href='https://assignment-11-c3aa0.web.app/'>Live</a></h1>
+                            <h1 className=' text-base font-bold lowercase'>MEN'S PERFEUM <a  className='link text-primary' href='https://assignment-11-c3aa0.web.app/' target="_blank" rel="noreferrer">Live</a></h1>
                             <img src={project1} className=' h-40 flex mx-auto' alt="" />
                         </div>
                             <div className='mx-auto'>
-                            <h1 className='text-base font-bold lowercase'>Task manager <a className=' link text-primary' href='https://skill-test-3664a.web.app/'>live</a></h1>
+                            <h1 className='text-base font-bold lowercase'>Task manager <a className=' link text-primary' href='https://skill-test-3664a.web.app/' target="_blank" rel="noreferrer">live</a></h1>
                             <img src={project2} className=' h-40 flex mx-auto' alt="" />
                         </div>
                             <div className='mx-auto'>
-                            <h1 className='text-base font-bold lowercase'>Clone Netlify <a className=' link text-primary' href='https://saymanrabbi.github.io/Clone-netlifly/index.html'>live</a></h1>
+                            <h1 className='text-base font-bold lowercase'>Clone Netlify <a className=' link text-primary' href='https://saymanrabbi.github.io/Clone-netlifly/index.html' target="_blank" rel="noreferrer">live</a></h1>
                             <img src={project3} className=' h-40 felx mx-auto' alt="" />
                         </div>
                         </div>

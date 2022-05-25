@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 
 const ManageorderRow = ({ user, index,refetch }) => {
-    const { email, paid, quentityValue, productPrice,_id } = user
+    const { email, paid, quentityValue, productPrice,_id,shipped} = user
     const deletePd = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -28,7 +28,17 @@ const ManageorderRow = ({ user, index,refetch }) => {
               )
             }
           })
-    }
+  }
+  const updatePd = (_id) => {
+    fetch(`http://localhost:5000/shipped/${_id}`, {
+      method: "PATCH"
+    }).then(res => res.json()).then(data => {
+      if (data.messages) {
+        console.log(data)
+        refetch()
+      }
+    })
+  }
     return (
         <tr>
         <th>{ index+1}</th>
@@ -36,7 +46,11 @@ const ManageorderRow = ({ user, index,refetch }) => {
             <td>{quentityValue}</td>
             <td>{productPrice}</td>
             
-        <td>{paid? <button className='text-xl font-bold uppercase btn btn-sm' disabled={paid}>Paid</button>:<span className='btn btn-sm' onClick={()=>deletePd(_id)}>Cancel order</span>}</td>
+        <td>{paid && shipped ? <button className='text-xl font-bold uppercase btn btn-sm' >shipped</button> : ''}
+          {
+            paid?<button className='text-xl font-bold uppercase btn btn-sm' disabled={paid && shipped} onClick={() => updatePd(_id)}>Pending</button>:<span className='btn btn-sm' onClick={() => deletePd(_id)}>Unpaid</span>
+        }
+        </td>
   </tr>
     );
 };
