@@ -22,13 +22,14 @@ const Navbar = () => {
               {
                user&&<li><NavLink to='/dashboard'>Dashboard</NavLink></li>
               }
+               <li> <NavLink to='/myportfolio'>My Portfolio</NavLink></li>
              {
                user? <li><p>{user.displayName}</p></li>:''
             }
               {
                user?<li><NavLink to='/login' onClick={logout}>Logout</NavLink></li>:<li><NavLink to='/login'>login</NavLink></li>
               }
-              
+             
             </ul>
             
     </div>
@@ -42,11 +43,14 @@ const Navbar = () => {
     <li><NavLink to='/'>Home</NavLink></li>
             <li><NavLink to='/blog'>Blog</NavLink></li>
             {
-               user&&<li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+              user && <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+              
             }
+            <li> <NavLink to='/myportfolio'>My Portfolio</NavLink></li>
             {
                user? <li><p>{user.displayName}</p></li>:''
             }
+            
             {
                user?<li><NavLink to='/login' onClick={logout}>Logout</NavLink></li>:<li><NavLink to='/login'>login</NavLink></li>
               }

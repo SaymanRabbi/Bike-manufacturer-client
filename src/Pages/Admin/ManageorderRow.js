@@ -36,7 +36,7 @@ const ManageorderRow = ({ user, index,refetch }) => {
             <td>{quentityValue}</td>
             <td>{productPrice}</td>
             
-        <td>{paid? <span className='text-xl font-bold uppercase btn btn-sm'>Paid</span>:<span className='btn btn-sm' onClick={()=>deletePd(_id)}>Cancel order</span>}</td>
+        <td>{paid? <button className='text-xl font-bold uppercase btn btn-sm' disabled={paid}>Paid</button>:<span className='btn btn-sm' onClick={()=>deletePd(_id)}>Cancel order</span>}</td>
   </tr>
     );
 };

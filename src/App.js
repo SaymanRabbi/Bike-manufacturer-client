@@ -23,11 +23,12 @@ import AdminRequireAuth from './Pages/Shared/AdminRequireAuth';
 import ManageProducts from './Pages/Admin/ManageProducts';
 import AddProduct from './Pages/Admin/AddProduct';
 import ManagOrders from './Pages/Admin/ManagOrders';
+import MyPortfolio from './Pages/MyPortfolio';
 
 function App() {
   return (
     <HelmetProvider>
-    <div >
+    <div>
         <Navbar></Navbar>
         <Routes>
           <Route path='/' element={<Home></Home>}></Route>
@@ -38,6 +39,8 @@ function App() {
           <Route path='/product/:id' element={<RequireAuth>
             <Product></Product>
           </RequireAuth>}></Route>
+
+          <Route path='/myportfolio' element={<MyPortfolio></MyPortfolio>}></Route>
           <Route path='/dashboard' element={<RequireAuth>
             <Dashboard></Dashboard>
           </RequireAuth>}>

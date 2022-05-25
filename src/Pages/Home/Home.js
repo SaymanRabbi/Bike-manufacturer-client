@@ -8,7 +8,7 @@ import ScrollToTop from "react-scroll-to-top";
 const Home = () => {
     return (
         <div style={{ minHeight: '100vh' }}>
-            <ScrollToTop smooth />
+            <ScrollToTop smooth top='1000' color='#570DF8' />
             <Banner></Banner>
             <Tools/>
             <BusinessSummary></BusinessSummary>
