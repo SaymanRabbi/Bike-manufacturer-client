@@ -119,7 +119,7 @@ const Login = () => {
                         <input type="submit" className='btn btn-primary' value='Login' />
                         
                     </form>
-                    <p className='text-red-500 cursor-pointer' onClick={ResetPass}>Forget PassWord? <span className=' font-bold'>Reset Password</span></p>
+                    <p className='text-red-500 cursor-pointer' onClick={ResetPass}><span className=' font-bold'>Reset Password?</span></p>
                     <div className="divider">OR</div>
                     <Link to='/register' className='text-center text-primary mb-3'>Dont Have Account? Register</Link>
                     <button onClick={()=>signInWithGoogle()} className="btn btn-outline flex gap-5"><FontAwesomeIcon className=' text-primary text-3xl' icon={faGoogle}></FontAwesomeIcon> CONTINUE WITH GOOGLE</button>
