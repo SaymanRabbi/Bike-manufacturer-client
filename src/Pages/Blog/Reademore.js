@@ -4,8 +4,6 @@ import { useParams } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
 
 const Reademore = () => {
-    const today = new Date();
-    const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     const {id} =useParams()
     const { data: blogdata, isLoading } = useQuery(['blogdata', id], () => fetch(`https://assignment12bike.herokuapp.com/blog/${id}`).then(res => res.json()))
     if (isLoading) {

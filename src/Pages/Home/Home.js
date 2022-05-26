@@ -6,10 +6,12 @@ import Tools from './Tools';
 import ScrollToTop from "react-scroll-to-top";
 import Whatwebuild from '../Whatwebuild/Whatwebuild';
 import Contactus from '../Contactus';
+import PageTittle from '../../PageTittle/PageTittle';
 
 const Home = () => {
     return (
         <div style={{ minHeight: '100vh' }}>
+            <PageTittle location="Bike Manufacturers - Home"></PageTittle>
             <ScrollToTop smooth top='1000' color='#570DF8' />
             <Banner></Banner>
             <Tools/>

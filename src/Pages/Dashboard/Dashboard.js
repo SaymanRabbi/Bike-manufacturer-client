@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import useAdmin from '../../hooks/useAdmin';
+import PageTittle from '../../PageTittle/PageTittle';
 
 const Dashboard = () => {
   const [admin] = useAdmin()
     return (
-        <div className="drawer drawer-mobile">
+      <div className="drawer drawer-mobile">
+        <PageTittle location="Bike Manufacturers - Dashboard"></PageTittle>
   <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
   <div className="drawer-content items-center justify-center">
                 {/* <!-- Page content here --> */}

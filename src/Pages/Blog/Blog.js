@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
+import PageTittle from '../../PageTittle/PageTittle';
 import Loading from '../Shared/Loading/Loading';
 
 const Blog = () => {
@@ -13,7 +14,8 @@ const Blog = () => {
         return <Loading></Loading>
     }
     return (
-        <div style={{minHeight:'100vh'}}>
+        <div style={{ minHeight: '100vh' }}>
+            <PageTittle location="Bike Manufacturers - Blog"></PageTittle>
             <h2 className='lg:text-5xl md:text-3xl text-xl font-bold uppercase text-center mt-10'><span className=' w-fit' style={{borderBottom:'3px solid black'}}>Blog</span> </h2>
 
             <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 my-10'>

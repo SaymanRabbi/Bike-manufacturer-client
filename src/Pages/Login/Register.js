@@ -9,6 +9,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
 import useToken from '../../hooks/useToken';
 import useStoreUser from '../../hooks/useStoreUser';
+import PageTittle from '../../PageTittle/PageTittle';
 const Register = () => {
     let location = useLocation();
     const navigate = useNavigate()
@@ -38,7 +39,8 @@ const Register = () => {
        
     };
     return (
-      <div className="flex justify-center items-center" style={{backgroundColor:'#570DF8',minHeight:'100vh'}}>
+      <div className="flex justify-center items-center" style={{ backgroundColor: '#570DF8', minHeight: '100vh' }}>
+        <PageTittle location="Bike Manufacturers - Register"></PageTittle>
         <div className="card w-96 bg-base-100 shadow-xl my-16">
           <div className="card-body">
             <h2 className="text-center text-primary font-bold text-2xl">

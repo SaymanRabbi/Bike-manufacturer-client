@@ -9,6 +9,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
 import useToken from '../../hooks/useToken.js';
 import useStoreUser from '../../hooks/useStoreUser.js';
+import PageTittle from '../../PageTittle/PageTittle.js';
 const Login = () => {
     let location = useLocation();
     const navigate = useNavigate()
@@ -44,7 +45,8 @@ const Login = () => {
         signInWithEmailAndPassword(data.email,data.password)
     }
     return (
-        <div style={{minHeight:'100vh',backgroundColor:'#570DF8'}} className='flex justify-center items-center'>
+        <div style={{ minHeight: '100vh', backgroundColor: '#570DF8' }} className='flex justify-center items-center'>
+            <PageTittle location="Bike Manufacturers - Login"></PageTittle>
             <div className="card w-96 bg-base-100  shadow-2xl">
 <div className="card-body">
             <form onSubmit={handleSubmit(onSubmit)}>

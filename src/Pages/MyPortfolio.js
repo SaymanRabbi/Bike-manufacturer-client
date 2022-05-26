@@ -3,10 +3,12 @@ import person from '../Images/person.jpg'
 import project1 from '../Images/project.png'
 import project2 from '../Images/project2.png'
 import project3 from '../Images/project3.png'
+import PageTittle from '../PageTittle/PageTittle';
 
 const MyPortfolio = () => {
     return (
         <div className='mb-5'>
+            <PageTittle location="Bike Manufacturers - Myportfolio"></PageTittle>
               <div className='flex justify-center items-center my-5' style={{minHeight:'100vh'}}>
             <div className=' py-5 lg:w-2/4 md:w-3/4 w-full shadow-2xl rounded-md'>
                 <div className='w-2/4 mx-auto'>
