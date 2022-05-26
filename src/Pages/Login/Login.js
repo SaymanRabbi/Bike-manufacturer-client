@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
@@ -15,7 +15,7 @@ const Login = () => {
     const [sendPasswordResetEmail,, passerror] = useSendPasswordResetEmail(
         auth
     );
-    const email =useRef('')
+    const [email, setEmail] = useState('')
     let location = useLocation();
     const navigate = useNavigate()
     let from = location.state?.from?.pathname || "/";
@@ -49,10 +49,12 @@ const Login = () => {
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email,data.password)
     }
-    const ResetPass = async() => {
-        const emails = email.current.value
-        if (emails) {
-            await sendPasswordResetEmail(emails);
+    const ResetPass = () => {
+        if (email) {
+             sendPasswordResetEmail(email);
+            if (!passerror?.message) {
+                toast.success('sucessfully send email')
+            }
         }
         else {
             toast.error('Provide Your Email')
@@ -66,10 +68,10 @@ const Login = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                     {/* register your input into the hook by invoking the "register" function */}
                     <div className="form-control w-full max-w-xs">
-<label className="label">
-    <span className="label-text">Email</span>
-</label>
-            <input type="Email" ref={email}  placeholder="Your Email" className="input input-bordered input-primary w-full max-w-xs"{...register("email",{
+          <label className="label">
+            <span className="label-text">Email</span>
+         </label>
+            <input type="Email"  placeholder="Your Email" className="input input-bordered input-primary w-full max-w-xs"{...register("email",{
                 pattern: {
                     value: /^\S+@\S+\.\S+$/,
                     message: 'Invalid Email'
@@ -79,6 +81,7 @@ const Login = () => {
                     value: true,
                     message:"Provied Email"
                 },
+                onChange: (e) => setEmail(e.target.value) 
             })}
             />
             <label className="label">

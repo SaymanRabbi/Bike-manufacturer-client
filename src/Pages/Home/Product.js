@@ -11,7 +11,7 @@ const Product = () => {
     const [error,setError] = useState('')
     const [user] = useAuthState(auth)
     const { id } = useParams()
-    const { data: product, isLoading } = useQuery(['product', id], () => fetch(`https://assignment12bike.herokuapp.com/product/${id}`, {
+    const { data: product, isLoading,refetch } = useQuery(['product', id], () => fetch(`https://assignment12bike.herokuapp.com/product/${id}`, {
         method: 'GET',
         headers: {
             'authorization': `Barer ${localStorage.getItem('token')}`
@@ -70,6 +70,7 @@ const Product = () => {
             }).then(res => res.json()).then(data => {
                 if (data.success) {
                     toast.success('Product Add Your Card')
+                    refetch()
                 }
             })
             event.target.reset()   
