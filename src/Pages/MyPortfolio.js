@@ -14,9 +14,9 @@ const MyPortfolio = () => {
                 <div className='w-2/4 mx-auto'>
                     <img src={person} className='w-52 rounded-full flex mx-auto' alt="" />
                 </div>
-        <div class="card w-3/4 mx-auto text-primary-content">
-         <div class="card-body text-black">
-         <h2 class="card-title   text-2xl">Name: <span className='text-2xl uppercase font-bold text-primary'>Sayman Rabbi</span></h2>
+        <div className="card w-3/4 mx-auto text-primary-content">
+         <div className="card-body text-black">
+         <h2 className="card-title   text-2xl">Name: <span className='text-2xl uppercase font-bold text-primary'>Sayman Rabbi</span></h2>
                         <p className='text-2xl font-bold'>Email: <span className='text-2xl font-bold text-primary'>mdrabbi.asm@gmail.com</span></p>
                         <span className=' uppercase w-fit' style={{ borderBottom: '2px solid black' }}>educational background</span>
                         <li>Rangpur Govt. College | Degree First Year in (BSC)</li>

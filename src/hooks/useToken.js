@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react"
 
 const useToken = (user) => {
-    console.log(user)
     const [token,setToken]=useState('')
     useEffect(() => {
         const gettoken = async () => {
             const emails = user?.user?.email
-            console.log(emails)
             if (emails) {
                 fetch(`https://assignment12bike.herokuapp.com/token?email=${emails}`, {
                     method: "POST",

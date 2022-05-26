@@ -20,9 +20,9 @@ const Blog = () => {
 
             <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10 my-10'>
                 {
-                    blog.map(data=><div key={data._id} class="card w-96 bg-base-100 shadow-xl mx-auto">
+                    blog.map(data=><div key={data._id} className="card w-96 bg-base-100 shadow-xl mx-auto">
                     <figure><img src={data.image} alt="Shoes" /></figure>
-                        <div class="card-body">
+                        <div className="card-body">
                             <h2 className=' font-bold'>{data.question}</h2>
                             <p>{(data.text).slice(0, 200) + '...'}</p>
                             <span>Author :Sayman Rabbi {date}</span>
