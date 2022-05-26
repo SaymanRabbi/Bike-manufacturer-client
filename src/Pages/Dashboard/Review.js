@@ -15,7 +15,7 @@ const Review = () => {
     const imageStroageKey ="5fffcbe84005cc248e45eb64e99cb950";
     const Updateproduct = (data) => {
         const formData = new FormData();
-        const image = data.image[0]; 
+        const image = data.image[0];
         formData.append("image", image);
         console.log(formData);
         const url = `https://api.imgbb.com/1/upload?key=${imageStroageKey}`;

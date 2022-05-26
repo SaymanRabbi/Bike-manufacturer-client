@@ -20,7 +20,7 @@ const Tool = ({ tool }) => {
             
                     
           </div>
-          <Link to={`/product/${tool._id}`}><button className='btn btn-primary mt-5' disabled={quantity<minquantity}>buy now</button></Link>
+          <Link className=' w-fit' to={`/product/${tool._id}`}><button className='btn btn-primary mt-5' disabled={quantity<minquantity}>buy now</button></Link>
   </div>
 </div>
     );
