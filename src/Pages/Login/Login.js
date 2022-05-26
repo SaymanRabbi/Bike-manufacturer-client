@@ -1,16 +1,21 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from '@fortawesome/free-brands-svg-icons'
 import auth from '../../firebase.init.js'
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading/Loading';
 import useToken from '../../hooks/useToken.js';
 import useStoreUser from '../../hooks/useStoreUser.js';
 import PageTittle from '../../PageTittle/PageTittle.js';
+import { toast } from 'react-toastify';
 const Login = () => {
+    const [sendPasswordResetEmail,, passerror] = useSendPasswordResetEmail(
+        auth
+    );
+    const email =useRef('')
     let location = useLocation();
     const navigate = useNavigate()
     let from = location.state?.from?.pathname || "/";
@@ -31,11 +36,11 @@ const Login = () => {
    
     useEffect(() => {
         let displayErro;
-        if (error || gerror) {
-            displayErro = <p className='text-red-500'><span>{error?.message || gerror?.message}</span></p>
+        if (error || gerror ||passerror) {
+            displayErro = <p className='text-red-500'><span>{error?.message || gerror?.message ||passerror?.message}</span></p>
             setShowError(displayErro)
         }
-    },[error,gerror])
+    },[error,gerror,passerror])
     if (loading||gloading) {
         return <Loading></Loading>
     }
@@ -43,6 +48,15 @@ const Login = () => {
     
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email,data.password)
+    }
+    const ResetPass = async() => {
+        const emails = email.current.value
+        if (emails) {
+            await sendPasswordResetEmail(emails);
+        }
+        else {
+            toast.error('Provide Your Email')
+        }
     }
     return (
         <div style={{ minHeight: '100vh', backgroundColor: '#570DF8' }} className='flex justify-center items-center'>
@@ -55,7 +69,7 @@ const Login = () => {
 <label className="label">
     <span className="label-text">Email</span>
 </label>
-            <input type="Email"  placeholder="Your Email" className="input input-bordered input-primary w-full max-w-xs"{...register("email",{
+            <input type="Email" ref={email}  placeholder="Your Email" className="input input-bordered input-primary w-full max-w-xs"{...register("email",{
                 pattern: {
                     value: /^\S+@\S+\.\S+$/,
                     message: 'Invalid Email'
@@ -102,6 +116,7 @@ const Login = () => {
                         <input type="submit" className='btn btn-primary' value='Login' />
                         
                     </form>
+                    <p className='text-red-500 cursor-pointer' onClick={ResetPass}>Forget PassWord? <span className=' font-bold'>Reset Password</span></p>
                     <div className="divider">OR</div>
                     <Link to='/register' className='text-center text-primary mb-3'>Dont Have Account? Register</Link>
                     <button onClick={()=>signInWithGoogle()} className="btn btn-outline flex gap-5"><FontAwesomeIcon className=' text-primary text-3xl' icon={faGoogle}></FontAwesomeIcon> CONTINUE WITH GOOGLE</button>
