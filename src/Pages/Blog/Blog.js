@@ -8,7 +8,7 @@ import Loading from '../Shared/Loading/Loading';
 const Blog = () => {
     const today = new Date();
     const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    const { data: blog, isLoading } = useQuery('blog', () => fetch('http://localhost:5000/blog').then(res => res.json()))
+    const { data: blog, isLoading } = useQuery('blog', () => fetch('https://assignment12bike.herokuapp.com/blog').then(res => res.json()))
     if (isLoading) {
         return <Loading></Loading>
     }

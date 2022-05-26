@@ -7,7 +7,7 @@ const Reademore = () => {
     const today = new Date();
     const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     const {id} =useParams()
-    const { data: blogdata, isLoading } = useQuery(['blogdata', id], () => fetch(`http://localhost:5000/blog/${id}`).then(res => res.json()))
+    const { data: blogdata, isLoading } = useQuery(['blogdata', id], () => fetch(`https://assignment12bike.herokuapp.com/blog/${id}`).then(res => res.json()))
     if (isLoading) {
         return <Loading></Loading>
     }
@@ -19,7 +19,7 @@ const Reademore = () => {
                 <h2 className='px-3 mt-10 font-bold uppercase text-center'>
                     {question}
                 </h2>
-                <p className='text-center'>
+                <p className='px-20 text-justify mt-5'>
                     {text}
                 </p>
            </div>
