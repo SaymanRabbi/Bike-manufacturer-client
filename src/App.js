@@ -24,6 +24,7 @@ import ManageProducts from './Pages/Admin/ManageProducts';
 import AddProduct from './Pages/Admin/AddProduct';
 import ManagOrders from './Pages/Admin/ManagOrders';
 import MyPortfolio from './Pages/MyPortfolio';
+import Reademore from './Pages/Blog/Reademore';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home></Home>}></Route>
           <Route path='/blog' element={<Blog></Blog>}></Route>
+          <Route path='/readmore/:id' element={<Reademore></Reademore>}></Route>
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/register' element={<Register></Register>}></Route>
           <Route path='*' element={<NotFound></NotFound>}></Route>

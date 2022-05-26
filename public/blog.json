@@ -1,0 +1,32 @@
+[
+    {    "question":"How will you improve the performance of a React Application?",
+        "tittle":"",
+        "text":"By adding an arrow function in a class, we add it as an object and not as the prototype property of the class. And if we use the component multiple time, there will be various instances of these functions within each object of the component.Optimize You Image how much you can?To optimize an application that consists of several images, we can avoid rendering all of the images at once to improve the page load time. With lazy loading, we can wait until each of the images is about to appear in the viewport before we render them in the DOM.Avoid inline function in the render method.If we use the inline function, the function will generate a new instance of the object in every render and there will be multiple instances of these functions which will lead to consuming more time in garbage collection.Code-splitting is another important optimization technique for a React application. By default, when a React application renders in a browser, a “bundle” file containing the entire application code loads and serves to users at once. This file generates by merging all the code files needed to make a web application work.The idea of bundling is useful because it reduces the number of HTTP requests a page can handle. However, as an application grows, the file sizes increase, thus increasing the bundle file. At a certain point, this continuous file increase slows the initial page load, reducing the users satisfaction.With code-splitting, React allows us to split a large bundle file into multiple chunks using dynamic import() followed by lazy loading these chunks on-demand using the React.lazy. This strategy greatly improves the page performance of a complex React application. To implement code-splitting, we transform a normal React import like this",
+        "image":"https://i.ibb.co/zV5pS8S/1-P2-Nku-Xz7-Le-x-Ang-T86-T4-Sg.png"
+    },
+    {    "question":"What are the different ways to manage a state in a React application?",
+        "tittle":"",
+        "text":"Local state is data we manage in one or another component.Local state is most often managed in React using the useState hook. when user click some where and you want to show something modal or anything where you use to useState. next golobal state Global state is necessary when we want to get and update data anywhere in our app, or in multiple components at least.Then Server State Data that comes from an external server that must be integrated with our UI state.url state if you want to show something user like when user go to another page or when user submit form you store data server successfully and then show something where you use to url state and read url params or query then show user something",
+        "image":"https://i.ibb.co/hmVyd4v/retina-1708x683-image-0-1967657e3078be54d78ccc4d57eae106-f763757d0bd43e58ff9976083b458547.png"
+    },
+    {    "question":"How does prototypical inheritance work?",
+        "tittle":"",
+        "text":"JavaScript is a prototype-based, Object Oriented programming language.   After the ES6 updates, JavaScript allowed for “prototypal inheritance”, meaning  that objects and methods can be shared, extended, and copied.Simply put, prototypical inheritance refers to the ability to access object properties from another object. We use a JavaScript prototype to add new properties and methods to an existing object constructor. We can then essentially tell our JS code to inherit properties from a prototype. Prototypical inheritance allows us to reuse the properties or methods from one JavaScript object to another through a reference pointer function.",
+        "image":"https://i.ibb.co/qML3p6T/6346760642363392.png"
+    },
+    {    "question":"Why you do not set the state directly in React?",
+        "tittle":"",
+        "text":"When you directly update the state, it does not change this.state immediately. Instead, it creates a pending state transition, and accessing it after calling this method will only return the present value.Mutating state directly can lead to odd bugs, and components that are hard to optimize.react not changes component directly when update the component react re-rander this its call immutabel but if you changes the state direactly the componenet should not update and break your aplication .As you may already know, a common way to tune a React component for performance is to make it “pure,” which causes it to only re-render when its props change (instead of every time its parent re-renders). This can be done automatically by extending React.PureComponent instead of React.Component, or manually by implementing the shouldComponentUpdate lifecycle method to compare nextProps with current props. If the props look the same, it skips the render, and saves some time.Thats why you shouldnt mutate state, even if you immediately call setState. Optimized components might not re-render if you do, and the rendering bugs will be tricky to track down",
+        "image":"https://i.ibb.co/4Z8Kp4r/why-not-modify-react-state-twitter.png"
+    },
+    {    "question":"How will you implement a search to find products by name in a array?",
+        "tittle":"",
+        "text":"Apply The includes() Method Ex:const name =['sayman','rabbi','bangla'],   method: name.includes('sayman') if the property exits the array its return true and its not exits ite return false",
+        "image":"https://i.ibb.co/GWbd1D1/1-l2dr-HNLm7i92-HWo-PHEPxjw.jpg"
+    },
+    {    "question":"What is a unit test? Why should write unit tests?",
+        "tittle":"",
+        "text":"UNIT TESTING is a type of software testing where individual units or components of a software are tested. The purpose is to validate that each unit of the software code performs as expected. Unit Testing is done during the development (coding phase) of an application by the developers. Unit Tests isolate a section of code and verify its correctness. A unit may be an individual function, method, procedure, module, or object.Unit Testing is important because software developers sometimes try saving time doing minimal unit testing and this is myth because inappropriate unit testing leads to high cost Defect fixing during System Testing, Integration Testing and even Beta Testing after application is built",
+        "image":"https://i.ibb.co/SN2Xqjy/Unit-Testing.png"
+    }
+]

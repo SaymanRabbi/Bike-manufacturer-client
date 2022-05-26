@@ -31,7 +31,7 @@ const BusinessSummary = () => {
     <div class="stat-figure text-secondary">
       <div class="avatar online">
         <div class="w-16 rounded-full">
-          <img src={user?.photoURL} alt='' />
+          <img src={user?.photoURL? user?.photoURL:'https://i.ibb.co/PhHRTcd/download.jpg'} alt='' />
         </div>
       </div>
     </div>

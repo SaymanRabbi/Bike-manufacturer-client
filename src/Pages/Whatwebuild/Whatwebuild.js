@@ -5,7 +5,7 @@ import {faUserAstronaut} from '@fortawesome/free-solid-svg-icons'
 const Whatwebuild = () => {
     return (
         <div className='my-16'>
-            <h2 className='text-5xl text-center mb-5 font-bold text-primary'>Our Service <span className=' w-fit' style={{borderBottom:'2px solid black'}}>Section</span> <FontAwesomeIcon icon={faUserAstronaut}></FontAwesomeIcon></h2>
+            <h2 className='lg:text-5xl md:text-3xl text-2xl text-center mb-5 font-bold text-primary'>Our Service <span className=' w-fit' style={{borderBottom:'2px solid black'}}>Section</span> <FontAwesomeIcon icon={faUserAstronaut}></FontAwesomeIcon></h2>
              <div className='w-3/4 mx-auto grid lg:grid-cols-2 gap-5 items-center'>
             <div >
                 <img className='w-full' src={img} alt="" />
