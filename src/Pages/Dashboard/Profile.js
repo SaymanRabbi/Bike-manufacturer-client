@@ -19,7 +19,7 @@ const Profile = () => {
     
     return (
         <div>
-            <h2 className='text-center mt-10 text-3xl font-bold'>Wecome Your Profile {user?.displayName}</h2>
+            <h2 className='text-center mt-10 text-3xl font-bold'>Wecome Your Profile {user?.displayName} Your Email {user?.email}</h2>
             <div className=' py-5 rounded mt-5   lg:w-3/4 mx-auto bg-slate-300'>
                 <div className='w-2/4 mx-auto py-3'> 
                 <img src={user?.photoURL?user?.photoURL:'https://i.ibb.co/PhHRTcd/download.jpg'} alt="" className='flex mx-auto w-40 rounded-full' />
